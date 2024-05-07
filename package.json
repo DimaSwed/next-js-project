@@ -1,5 +1,5 @@
 {
-	"name": "next-js-project",
+	"name": "weather-next-js",
 	"version": "0.1.0",
 	"private": true,
 	"scripts": {
@@ -11,6 +11,8 @@
 	"dependencies": {
 		"@reduxjs/toolkit": "^2.2.3",
 		"next": "14.2.3",
+		"next-auth": "^4.24.7",
+		"next-navigation": "^1.0.6",
 		"react": "^18",
 		"react-dom": "^18",
 		"react-icons": "^5.2.0",

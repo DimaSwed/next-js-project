@@ -13,6 +13,8 @@ type TypeProps = {
 const Navigation = ({ navLinks }: TypeProps) => {
 	const pathname = usePathname()
 
+	console.log(pathname)
+
 	return (
 		<div className="nav">
 			{navLinks.map(link => {

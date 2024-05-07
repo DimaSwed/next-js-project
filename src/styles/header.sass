@@ -1,8 +1,8 @@
 header
   background-color: #2C2C32
-  height: 10vh
+  height: 12vh
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1)
-    // padding: 2rem 0
+  padding: 2rem 0
 
   .header
     width: 85%
@@ -11,7 +11,7 @@ header
     align-items: center
     justify-content: space-between
     margin: 0 auto
-    height: 10vh
+    height: 12vh
     padding: 0
 
     .header__logo
@@ -23,19 +23,28 @@ header
         border-radius: 15%
 
       span
+        display: inline-block
         color: white
+        font-size: 19px
+        font-weight: 500
+        line-height: 28.5px
 
     .nav
       display: flex
 
     .nav > a
+      font-size: 19px
+      font-weight: 500
       color: white
       text-decoration: none
       padding: 0 1rem
+      cursor: pointer
+      display: inline-block
+      line-height: 28.5px
 
-      a:hover
-        color: #ff9b27
-        text-decoration: none
+    a:hover
+      color: #ff9b27
+      text-decoration: underline
 
   .active
     color: #ff9b27!important

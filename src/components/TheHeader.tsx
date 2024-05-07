@@ -27,4 +27,4 @@ const TheHeader = () => {
 	)
 }
 
-export { TheHeader }
+export default TheHeader

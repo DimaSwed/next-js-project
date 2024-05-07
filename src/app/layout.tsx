@@ -1,8 +1,8 @@
 import type { Metadata } from 'next'
 import { Poppins } from 'next/font/google'
-import { TheHeader } from '@/components/TheHeader'
-// import './globals.sass'
+import TheHeader from '@/components/TheHeader'
 import '../styles/main.sass'
+import TheFooter from '@/components/TheFooter'
 
 const font = Poppins({
 	weight: ['100', '200', '300', '400', '500', '600', '700', '800', '900'],
@@ -24,6 +24,7 @@ export default function RootLayout({
 			<body className={font.className}>
 				<TheHeader />
 				<main className="container">{children}</main>
+				<TheFooter />
 			</body>
 		</html>
 	)
