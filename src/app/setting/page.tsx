@@ -1,7 +1,6 @@
 import { Metadata } from 'next'
 import Link from 'next/link'
 import styles from './setting.module.sass'
-// import './setting.sass'
 
 export const metadata: Metadata = {
 	title: 'Settings | Weather App'

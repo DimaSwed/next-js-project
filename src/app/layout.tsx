@@ -1,7 +1,7 @@
 import type { Metadata } from 'next'
 import { Poppins } from 'next/font/google'
 import TheHeader from '@/components/TheHeader'
-import '../styles/main.sass'
+import '../styles/global.sass'
 import TheFooter from '@/components/TheFooter'
 
 const font = Poppins({
