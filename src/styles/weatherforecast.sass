@@ -34,6 +34,19 @@
   flex-wrap: wrap
   justify-content: center
 
+// .custom-carousel-item
+//   margin: 0
+
+.react-multiple-carousel__arrow.react-multiple-carousel__arrow--left
+  left: calc(2px)
+  opacity: 0.5
+  background-color: grey
+
+.react-multiple-carousel__arrow.react-multiple-carousel__arrow--right
+  right: calc(2px)
+  opacity: 0.5
+  background-color: grey
+
 .weather_card
   padding: 20px
   margin: 20px 5px
@@ -42,7 +55,8 @@
   overflow: hidden
   width: 250px
   height: 250px
-  background-color: white
+  // background-color: white
+  border: 1px solid white
   box-shadow: 0px 0px 25px 1px rgba(50, 50, 50, 0.1)
   animation: appear 500ms ease-out forwards
 
@@ -51,7 +65,8 @@
     font-family: 'Lato', sans-serif
     font-weight: 300
     font-size: 30px
-    color: #B8B8B8
+    color: white
+    // color: #B8B8B8
     bottom: 40px
     left: 35px
     opacity: 0
@@ -66,7 +81,8 @@
     font-family: 'Lato', sans-serif
     font-weight: 300
     font-size: 20px
-    color: #B8B8B8
+    color: white
+    // color: #B8B8B8
     top: 20px
     left: 30px
     opacity: 0
@@ -78,7 +94,8 @@
     font-family: 'Lato', sans-serif
     font-weight: 300
     font-size: 28px
-    color: lighten(#B8B8B8, 10%)
+    color: white
+    // color: lighten(#B8B8B8, 10%)
     bottom: 5px
     left: 35px
     animation: title-appear 1s ease-out 500ms forwards

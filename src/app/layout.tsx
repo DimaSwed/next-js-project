@@ -1,12 +1,14 @@
 import type { Metadata } from 'next'
-import { Poppins } from 'next/font/google'
+import { Lato } from 'next/font/google'
 import TheHeader from '@/components/TheHeader'
 import '../styles/global.sass'
 import TheFooter from '@/components/TheFooter'
 
-const font = Poppins({
-	weight: ['100', '200', '300', '400', '500', '600', '700', '800', '900'],
-	subsets: ['latin']
+const font_lato = Lato({
+	preload: true,
+	weight: ['100', '300', '400', '700', '900'],
+	subsets: ['latin'],
+	style: 'normal'
 })
 
 export const metadata: Metadata = {
@@ -21,7 +23,7 @@ export default function RootLayout({
 }>) {
 	return (
 		<html lang="en">
-			<body className={font.className}>
+			<body className={font_lato.className}>
 				<TheHeader />
 				<main className="container">{children}</main>
 				<TheFooter />

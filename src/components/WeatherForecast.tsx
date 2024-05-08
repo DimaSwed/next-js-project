@@ -53,7 +53,7 @@ const WeatherForecast: FC<TypeWeather> = ({
 		// </div>
 		//
 		<div className="weather_wrapper">
-			<div className="weather_card madrid">
+			<div className="weather_card">
 				<div className="weather_icon">
 					<FaWind className="icon_wind" />
 				</div>

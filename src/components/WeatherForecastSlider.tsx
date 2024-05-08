@@ -99,8 +99,9 @@ export default function WeatherForecastSlider({
 			centerMode={false}
 			infinite
 			responsive={responsive}
-			itemClass="carousel-item-padding-20-px"
-			// ssr={true}
+			itemClass="custom-carousel-item"
+			removeArrowOnDeviceType={['mobile', 'mobile_min']}
+			partialVisible={false}
 		>
 			<WeatherForecast
 				dataday={currentDate}
