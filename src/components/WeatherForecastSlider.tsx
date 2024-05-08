@@ -108,6 +108,7 @@ export default function WeatherForecastSlider({
 				pressure={weatherData?.main?.pressure}
 				speed={weatherData?.wind?.speed}
 				clouds={weatherData?.weather[0]?.main}
+				name={weatherData?.name}
 			/>
 
 			<WeatherForecast
@@ -116,6 +117,7 @@ export default function WeatherForecastSlider({
 				pressure={weatherData?.main?.pressure}
 				speed={weatherData?.wind?.speed}
 				clouds={weatherData?.weather[0]?.main}
+				name={weatherData?.name}
 			/>
 			<WeatherForecast
 				dataday={currentDate}
@@ -123,6 +125,7 @@ export default function WeatherForecastSlider({
 				pressure={weatherData?.main?.pressure}
 				speed={weatherData?.wind?.speed}
 				clouds={weatherData?.weather[0]?.main}
+				name={weatherData?.name}
 			/>
 			<WeatherForecast
 				dataday={currentDate}
@@ -130,6 +133,7 @@ export default function WeatherForecastSlider({
 				pressure={weatherData?.main?.pressure}
 				speed={weatherData?.wind?.speed}
 				clouds={weatherData?.weather[0]?.main}
+				name={weatherData?.name}
 			/>
 			<WeatherForecast
 				dataday={currentDate}
@@ -137,6 +141,7 @@ export default function WeatherForecastSlider({
 				pressure={weatherData?.main?.pressure}
 				speed={weatherData?.wind?.speed}
 				clouds={weatherData?.weather[0]?.main}
+				name={weatherData?.name}
 			/>
 			<WeatherForecast
 				dataday={currentDate}
@@ -144,6 +149,7 @@ export default function WeatherForecastSlider({
 				pressure={weatherData?.main?.pressure}
 				speed={weatherData?.wind?.speed}
 				clouds={weatherData?.weather[0]?.main}
+				name={weatherData?.name}
 			/>
 			<WeatherForecast
 				dataday={currentDate}
@@ -151,6 +157,7 @@ export default function WeatherForecastSlider({
 				pressure={weatherData?.main?.pressure}
 				speed={weatherData?.wind?.speed}
 				clouds={weatherData?.weather[0]?.main}
+				name={weatherData?.name}
 			/>
 		</Carousel>
 	)
