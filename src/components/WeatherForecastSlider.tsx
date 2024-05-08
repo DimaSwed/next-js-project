@@ -5,7 +5,66 @@ import Carousel from 'react-multi-carousel'
 import 'react-multi-carousel/lib/styles.css'
 import WeatherForecast from './WeatherForecast'
 
-const WeatherForecastSlider = () => {
+const currentDate = new Date().toLocaleDateString()
+
+interface IWeather {
+	coord: Coord
+	weather: Weather[]
+	base: string
+	main: Main
+	visibility: number
+	wind: Wind
+	clouds: Clouds
+	dt: number
+	sys: Sys
+	timezone: number
+	id: number
+	name: string
+	cod: number
+}
+interface Clouds {
+	all: number
+}
+
+interface Coord {
+	lon: number
+	lat: number
+}
+
+interface Main {
+	temp: number
+	feels_like: number
+	temp_min: number
+	temp_max: number
+	pressure: number
+	humidity: number
+}
+
+interface Sys {
+	type: number
+	id: number
+	country: string
+	sunrise: number
+	sunset: number
+}
+
+interface Weather {
+	id: number
+	main: string
+	description: string
+	icon: string
+}
+
+interface Wind {
+	speed: number
+	deg: number
+}
+
+export default function WeatherForecastSlider({
+	weatherData
+}: {
+	weatherData: IWeather
+}) {
 	const responsive = {
 		desktop: {
 			breakpoint: { max: 3000, min: 1324 },
@@ -29,6 +88,8 @@ const WeatherForecastSlider = () => {
 		}
 	}
 
+	console.log(weatherData)
+
 	return (
 		<Carousel
 			additionalTransfrom={0}
@@ -39,20 +100,58 @@ const WeatherForecastSlider = () => {
 			infinite
 			responsive={responsive}
 			itemClass="carousel-item-padding-20-px"
+			// ssr={true}
 		>
-			{/* Weather card */}
-			<WeatherForecast />
-			<WeatherForecast />
-			<WeatherForecast />
-			<WeatherForecast />
-			<WeatherForecast />
-			<WeatherForecast />
-			<WeatherForecast />
-			<WeatherForecast />
-			<WeatherForecast />
-			<WeatherForecast />
+			<WeatherForecast
+				dataday={currentDate}
+				temperature={weatherData?.main?.temp}
+				pressure={weatherData?.main?.pressure}
+				speed={weatherData?.wind?.speed}
+				clouds={weatherData?.weather[0]?.main}
+			/>
+
+			<WeatherForecast
+				dataday={currentDate}
+				temperature={weatherData?.main?.temp}
+				pressure={weatherData?.main?.pressure}
+				speed={weatherData?.wind?.speed}
+				clouds={weatherData?.weather[0]?.main}
+			/>
+			<WeatherForecast
+				dataday={currentDate}
+				temperature={weatherData?.main?.temp}
+				pressure={weatherData?.main?.pressure}
+				speed={weatherData?.wind?.speed}
+				clouds={weatherData?.weather[0]?.main}
+			/>
+			<WeatherForecast
+				dataday={currentDate}
+				temperature={weatherData?.main?.temp}
+				pressure={weatherData?.main?.pressure}
+				speed={weatherData?.wind?.speed}
+				clouds={weatherData?.weather[0]?.main}
+			/>
+			<WeatherForecast
+				dataday={currentDate}
+				temperature={weatherData?.main?.temp}
+				pressure={weatherData?.main?.pressure}
+				speed={weatherData?.wind?.speed}
+				clouds={weatherData?.weather[0]?.main}
+			/>
+			<WeatherForecast
+				dataday={currentDate}
+				temperature={weatherData?.main?.temp}
+				pressure={weatherData?.main?.pressure}
+				speed={weatherData?.wind?.speed}
+				clouds={weatherData?.weather[0]?.main}
+			/>
+			<WeatherForecast
+				dataday={currentDate}
+				temperature={weatherData?.main?.temp}
+				pressure={weatherData?.main?.pressure}
+				speed={weatherData?.wind?.speed}
+				clouds={weatherData?.weather[0]?.main}
+			/>
 		</Carousel>
 	)
 }
-
-export default WeatherForecastSlider
