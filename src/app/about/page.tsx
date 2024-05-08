@@ -128,7 +128,7 @@ export default function About() {
 						<li className={styles.link_item}>
 							<p className={styles.link_item_p}>
 								Трехстраничный веб-сайт, разработанный с
-								использованием фреймворка React:
+								использованием фреймворка React
 							</p>
 							<div className={styles.link_item_box}>
 								<Link
@@ -150,7 +150,7 @@ export default function About() {
 						<li className={styles.link_item}>
 							<p className={styles.link_item_p}>
 								Адаптивный сайт с использованием HTML, CSS
-								(Sass), и JavaScript:
+								(Sass), и JavaScript
 							</p>
 							<div className={styles.link_item_box}>
 								<Link
@@ -172,7 +172,7 @@ export default function About() {
 						<li className={styles.link_item}>
 							<p className={styles.link_item_p}>
 								Простой сайт CSS Generator - на HTML, CSS и
-								JavaScript:
+								JavaScript
 							</p>
 							<div className={styles.link_item_box}>
 								<Link

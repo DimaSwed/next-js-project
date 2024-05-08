@@ -1,5 +1,10 @@
+'use client'
+import React, { useState } from 'react'
 import { Navigation } from './Navigation'
-import Image from 'next/image'
+import Burger from './Burger'
+import MobileNav from './MobileNav'
+import Logo from './Logo'
+
 import '@/styles/header.sass'
 
 const navItems = [
@@ -9,19 +14,17 @@ const navItems = [
 ]
 
 const TheHeader = () => {
+	const [showNav, setShowNav] = useState(false)
+	const showNavHandler = () => setShowNav(true)
+	const closeNavHandler = () => setShowNav(false)
+
 	return (
 		<header>
 			<div className="header">
-				<div className="header__logo">
-					<Image
-						src="/images/weather_logo.jpeg"
-						alt="Weather Logo"
-						width={70}
-						height={70}
-					/>
-					<span>Погода</span>
-				</div>
+				<Logo />
 				<Navigation navLinks={navItems} />
+				<Burger openNav={showNavHandler} />
+				<MobileNav nav={showNav} closeNav={closeNavHandler} />
 			</div>
 		</header>
 	)

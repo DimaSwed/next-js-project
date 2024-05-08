@@ -1,8 +1,16 @@
+$yellow-color: #ff9b27
+$background-color: #2C2C32
+$grey-color: #636363
+$greylight-color: #fafafa
+$white-color: #fff
+$color-black: black
+$lightblue-color: #408cd2
+
 .about
   font-family: 'Lato', sans-serif
   // background-color: #f1f6ff
   margin: 0 auto
-  padding: 30px
+  padding: 1.87rem
   text-align: center
   border-radius: 10px
   // box-shadow: rgba(0, 0, 0, 0.16) 0px 10px 36px 0px, rgba(0, 0, 0, 0.06) 0px 0px 0px 1px
@@ -10,7 +18,7 @@
 
 .head
   text-align: center
-  margin-bottom: 30px
+  margin-bottom: 1.87rem
 
 .section
   margin: 0 auto
@@ -18,20 +26,20 @@
   flex-direction: column
 
 .title_h1
-  font-size: 24px
+  font-size: 1.5rem
   font-weight: 700
-  margin-bottom: 10px
+  margin-bottom: 0.6rem
 
 .title_h2
-  font-size: 22px
+  font-size: 1.4rem
   font-weight: 700
   margin: 0 auto
-  margin-bottom: 20px
+  margin-bottom: 1.25rem
 
 .paragraph
-  font-size: 16px
+  font-size: 1rem
   line-height: 1.5
-  margin-bottom: 10px
+  margin-bottom: 0.6rem
 
 .contact_info
   display: flex
@@ -45,8 +53,8 @@
 
 .text
   display: block
-  font-size: 16px
-  margin-right: 20px
+  font-size: 1rem
+  margin-right: 1.25rem
   font-weight: 600
 
 .link_list
@@ -54,10 +62,10 @@
   padding: 0
 
 .link_item
-  margin-bottom: 10px
+  margin-bottom: 0.6rem
 
   &_p
-    margin-bottom: 10px
+    margin-bottom: 0.6rem
 
   &_box
     display: flex
@@ -68,17 +76,17 @@
   display: flex
   justify-content: center
   align-items: center
-  gap: 10px
-  color: white
-  // color: black
+  gap: 0.6rem
+  color: $white-color
+  // color: $color-black
   text-decoration: none
 
 .link:hover
-  color: #408cd2
+  color: $lightblue-color
 
   .link:visited
-    // color: black
-    color: white
+    // color: $color-black
+    color: $white-color
     text-decoration: none
 
 .chips
@@ -88,9 +96,9 @@
 
   .chip
     cursor: pointer
-    background: #636363
+    background: $grey-color
     border-radius: 3px 0 0 3px
-    color: #fafafa
+    color: $greylight-color
     display: inline-block
     height: 1.625rem
     line-height: 1.625rem
@@ -100,7 +108,7 @@
     transition: all 0.25s
 
   .chip::before
-    background: #fafafa
+    background: $greylight-color
     border-radius: 0.625rem
     box-shadow: inset 0 1px rgba(0, 0, 0, 0.25)
     content: ''
@@ -112,9 +120,9 @@
     transition: all 0.25s
 
   .chip::after
-    background: #fafafa
+    background: $greylight-color
     border-bottom: 0.8125rem solid transparent
-    border-left: 0.625rem solid #636363
+    border-left: 0.625rem solid $grey-color
     border-top: 0.8125rem solid transparent
     content: ''
     position: absolute
@@ -123,8 +131,12 @@
     transition: all 0.25s
 
   .chip:hover
-    background-color: #ff9b27
-    color: #636363
+    background-color: $yellow-color
+    color: $grey-color
 
   .chip:hover::after
-    border-left: 0.625rem solid #ff9b27
+    border-left: 0.625rem solid $yellow-color
+
+@media (max-width: 768px)
+  .about
+    padding: 0 10px

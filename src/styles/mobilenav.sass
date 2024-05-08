@@ -1,0 +1,78 @@
+$yellow-color: #ff9b27
+$background-color: #2C2C32
+$white-color: #fff
+
+.mobile_wrapper
+  transform: translateX(0px)
+  transition-property: all
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1)
+  transition-duration: 500ms
+  position: fixed
+  top: 0
+  left: 0
+  z-index: 200
+  height: 100vh
+  right: 0px
+  bottom: 0px
+  background-color: $background-color
+
+.transform_position_start
+  transform: translateX(0px)
+
+.transform_position_end
+  transform: translateX(-100%)
+
+.close_icon
+  cursor: pointer
+  width: 25px
+  height: 25px
+  position: absolute
+  top: 1rem
+  right: 1rem
+  color: $white-color
+  z-index: 202
+.close_icon:hover
+  color: $yellow-color
+
+.list_items
+  position: relative
+  z-index: 201
+  display: flex
+  flex-direction: column
+  align-items: center
+  height: 100%
+  gap: 1.5rem
+  margin-top: 2.5rem
+
+.list_item
+  font-size: 1.5rem
+  color: $white-color
+  cursor: pointer
+  transition-property: all
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1)
+  transition-duration: 200ms
+  text-decoration: none
+
+  .list_item:hover
+    color: $yellow-color
+
+.link
+  color: $white-color
+
+.logo_mobile
+  display: flex
+  justify-content: center
+  align-items: center
+  padding: 1.25rem
+
+@media (min-width: 769px)
+  .mobile_wrapper
+    display: none
+
+@media (max-width: 768px)
+  .mobile_wrapper
+    display: block
+
+@media (max-width: 376px)
+  .list_item
+    font-size: 1.2rem

@@ -1,5 +1,9 @@
+$yellow-color: #ff9b27
+$background-color: #2C2C32
+$white-color: #fff
+
 header
-  background-color: #2C2C32
+  background-color: $background-color
   height: 12vh
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1)
   padding: 2rem 0
@@ -18,25 +22,22 @@ header
     .header__logo
       display: flex
       align-items: center
-      gap: 15px
+      gap: 1rem
       img
-        color: #ff9b27
+        color: $yellow-color
         border-radius: 15%
 
       span
         display: inline-block
-        color: white
-        font-size: 19px
+        color: $white-color
+        font-size: 1.2rem
         font-weight: 500
         line-height: 28.5px
 
-    .nav
-      display: flex
-
     .nav > a
-      font-size: 19px
+      font-size: 1.2rem
       font-weight: 500
-      color: white
+      color: $white-color
       text-decoration: none
       padding: 0 1rem
       cursor: pointer
@@ -44,9 +45,23 @@ header
       line-height: 28.5px
 
     a:hover
-      color: #ff9b27
-      text-decoration: underline
+      color: $yellow-color
+      // text-decoration: underline
 
   .active
-    color: #ff9b27!important
+    color: $yellow-color!important
     cursor: default
+
+@media (min-width: 769px)
+  .nav
+    display: flex
+
+@media (max-width: 768px)
+  .nav
+    display: none
+
+@media (max-width: 378px)
+  header
+    height: 18vh
+    .header
+      height: 18vh

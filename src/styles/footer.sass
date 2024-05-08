@@ -1,5 +1,9 @@
+$yellow-color: #ff9b27
+$background-color: #2C2C32
+$grey-color: #636363
+
 footer
-  background-color: #2C2C32
+  background-color: $background-color
   height: 12vh
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1)
 
@@ -10,16 +14,23 @@ footer
     display: flex
     align-items: center
     justify-content: center
-    gap: 40px
+    gap: 2.5rem
     margin: 0 auto
     height: 12vh
     padding: 0
 
   .link
-    color: #636363
+    color: $grey-color
     cursor: pointer
     border-bottom: none
-    font-size: 40px
+    font-size: 2.5rem
 
   .link:hover
-    color: #ff9b27
+    color: $yellow-color
+
+@media (max-width: 320px)
+footer
+  height: 15vh
+  .footer
+    gap: 2rem
+    height: 15vh
