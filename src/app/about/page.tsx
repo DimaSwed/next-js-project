@@ -64,12 +64,13 @@ export default function About() {
 				<h2 className={styles.title_h2}>Обо мне</h2>
 
 				<p className={styles.paragraph}>
-					Меня зовут Дмитрий Буланкин я начал заниматься web
-					разработкой в 2023 году.
+					Меня зовут Дмитрий Буланкин, я занимаюсь web-разработкой с
+					2023 года.
 				</p>
 				<p className={styles.paragraph}>
-					Мои основные качества: Адаптивность, сотрудничество,
-					самоорганизованность, усидчивость, управление временем.
+					Мои основные качества: адаптивность, умение работать в
+					команде, самоорганизованность, усидчивость, управление
+					временем.
 				</p>
 			</section>
 
@@ -121,7 +122,7 @@ export default function About() {
 			<hr />
 
 			<section className={styles.section}>
-				<h2 className={styles.title_h2}>Пэт проекты (из последних):</h2>
+				<h2 className={styles.title_h2}>ПЭТ-проекты (из последних):</h2>
 
 				<div className={styles.cards}>
 					<ul className={styles.link_list}>

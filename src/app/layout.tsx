@@ -6,8 +6,7 @@ import '../styles/global.sass'
 import TheFooter from '@/components/TheFooter'
 
 const font_lato = Lato({
-	preload: true,
-	weight: ['100', '300', '400', '700', '900'],
+	weight: ['300', '400', '700', '900'],
 	subsets: ['latin'],
 	style: 'normal'
 })

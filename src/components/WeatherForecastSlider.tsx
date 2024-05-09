@@ -5,65 +5,16 @@ import Carousel from 'react-multi-carousel'
 import 'react-multi-carousel/lib/styles.css'
 import WeatherForecast from './WeatherForecast'
 
-const currentDate = new Date().toLocaleDateString()
+import { IWeather, IForecastday } from '@/types/types'
 
-interface IWeather {
-	coord: Coord
-	weather: Weather[]
-	base: string
-	main: Main
-	visibility: number
-	wind: Wind
-	clouds: Clouds
-	dt: number
-	sys: Sys
-	timezone: number
-	id: number
-	name: string
-	cod: number
-}
-interface Clouds {
-	all: number
-}
-
-interface Coord {
-	lon: number
-	lat: number
-}
-
-interface Main {
-	temp: number
-	feels_like: number
-	temp_min: number
-	temp_max: number
-	pressure: number
-	humidity: number
-}
-
-interface Sys {
-	type: number
-	id: number
-	country: string
-	sunrise: number
-	sunset: number
-}
-
-interface Weather {
-	id: number
-	main: string
-	description: string
-	icon: string
-}
-
-interface Wind {
-	speed: number
-	deg: number
+interface WeatherForecastProps {
+	weatherData: (IWeather & IForecastday) | null
 }
 
 export default function WeatherForecastSlider({
 	weatherData
 }: {
-	weatherData: IWeather
+	weatherData: WeatherForecastProps
 }) {
 	const responsive = {
 		desktop: {
@@ -88,8 +39,6 @@ export default function WeatherForecastSlider({
 		}
 	}
 
-	console.log(weatherData)
-
 	return (
 		<Carousel
 			additionalTransfrom={0}
@@ -103,63 +52,20 @@ export default function WeatherForecastSlider({
 			removeArrowOnDeviceType={['mobile', 'mobile_min']}
 			partialVisible={false}
 		>
-			<WeatherForecast
-				dataday={currentDate}
-				temperature={weatherData?.main?.temp}
-				pressure={weatherData?.main?.pressure}
-				speed={weatherData?.wind?.speed}
-				clouds={weatherData?.weather[0]?.main}
-				name={weatherData?.name}
-			/>
-
-			<WeatherForecast
-				dataday={currentDate}
-				temperature={weatherData?.main?.temp}
-				pressure={weatherData?.main?.pressure}
-				speed={weatherData?.wind?.speed}
-				clouds={weatherData?.weather[0]?.main}
-				name={weatherData?.name}
-			/>
-			<WeatherForecast
-				dataday={currentDate}
-				temperature={weatherData?.main?.temp}
-				pressure={weatherData?.main?.pressure}
-				speed={weatherData?.wind?.speed}
-				clouds={weatherData?.weather[0]?.main}
-				name={weatherData?.name}
-			/>
-			<WeatherForecast
-				dataday={currentDate}
-				temperature={weatherData?.main?.temp}
-				pressure={weatherData?.main?.pressure}
-				speed={weatherData?.wind?.speed}
-				clouds={weatherData?.weather[0]?.main}
-				name={weatherData?.name}
-			/>
-			<WeatherForecast
-				dataday={currentDate}
-				temperature={weatherData?.main?.temp}
-				pressure={weatherData?.main?.pressure}
-				speed={weatherData?.wind?.speed}
-				clouds={weatherData?.weather[0]?.main}
-				name={weatherData?.name}
-			/>
-			<WeatherForecast
-				dataday={currentDate}
-				temperature={weatherData?.main?.temp}
-				pressure={weatherData?.main?.pressure}
-				speed={weatherData?.wind?.speed}
-				clouds={weatherData?.weather[0]?.main}
-				name={weatherData?.name}
-			/>
-			<WeatherForecast
-				dataday={currentDate}
-				temperature={weatherData?.main?.temp}
-				pressure={weatherData?.main?.pressure}
-				speed={weatherData?.wind?.speed}
-				clouds={weatherData?.weather[0]?.main}
-				name={weatherData?.name}
-			/>
+			{weatherData?.forecast?.forecastday.map(
+				(forecast: IForecastday) => (
+					<WeatherForecast
+						key={forecast?.date_epoch}
+						dataday={forecast?.date}
+						temperature={forecast?.day?.maxtemp_c}
+						pressure={forecast?.hour[0]?.pressure_mb}
+						speed={forecast?.day.maxwind_kph}
+						clouds={forecast?.day.condition?.text}
+						name={weatherData?.location?.name}
+						icon={forecast?.day?.condition?.icon}
+					/>
+				)
+			)}
 		</Carousel>
 	)
 }

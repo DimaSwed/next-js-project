@@ -72,7 +72,7 @@ $snow-color: #C8DAE6
     position: absolute
     font-family: 'Lato', sans-serif
     font-weight: 300
-    font-size: 1.75rem
+    font-size: 1.6rem
     color: $white-color
     // color: lighten($greylight-color, 10%)
     bottom: 5px
@@ -81,38 +81,11 @@ $snow-color: #C8DAE6
 
 .weather_icon
   position: relative
-  width: 60px
-  height: 60px
   top: -20px
   left: 20px
   float: right
   margin: 40px 40px 0 0
   animation: weather-icon-move 5s ease-in-out infinite
-
-  .icon_rain
-    width: 60px
-    height: 60px
-    color: $blue-icon-color
-
-  .icon_cloud
-    width: 60px
-    height: 60px
-    color: $greylight-color
-
-  .icon_sun
-    width: 60px
-    height: 60px
-    color: $yellow-icon-color
-
-  .icon_snow
-    width: 60px
-    height: 60px
-    color: darken($snow-color, 5%)
-
-  .icon_wind
-    width: 60px
-    height: 60px
-    color: darken($snow-color, 5%)
 
 @keyframes weather-icon-move
   50%
@@ -158,27 +131,8 @@ $snow-color: #C8DAE6
       left: 30px
 
     p
-      font-size: 1.45rem
+      font-size: 1.3rem
 
 .weather_icon
+  top: -33px
   left: 40px
-
-  .icon_rain
-    width: 50px
-    height: 50px
-
-  .icon_cloud
-    width: 50px
-    height: 50px
-
-  .icon_sun
-    width: 50px
-    height: 50px
-
-  .icon_snow
-    width: 50px
-    height: 50px
-
-  .icon_wind
-    width: 50px
-    height: 50px
