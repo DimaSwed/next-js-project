@@ -1,5 +1,6 @@
 import type { Metadata } from 'next'
 import { Lato } from 'next/font/google'
+
 import TheHeader from '@/components/TheHeader'
 import '../styles/global.sass'
 import TheFooter from '@/components/TheFooter'

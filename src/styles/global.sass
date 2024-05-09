@@ -1,6 +1,7 @@
 @import 'reset.sass'
 
 $white-color: #fff
+$yellow-color: #ff9b27
 
 body
   font-family: 'Lato', sans-serif
@@ -20,3 +21,75 @@ body
   min-height: calc(100vh - 80px - 100px)
   padding-top: 1.5rem
   padding-bottom: 1.5rem
+
+#loading_indicator
+  display: flex
+  justify-content: center
+  align-items: center
+  position: fixed
+  top: 0
+  left: 0
+  width: 100vw
+  height: 100vh
+  z-index: 9999
+
+.lds_hourglass
+  color: $white-color
+  display: inline-block
+  position: relative
+  width: 80px
+  height: 80px
+
+  &:after
+    content: " "
+    display: block
+    border-radius: 50%
+    width: 0
+    height: 0
+    margin: 6px
+    box-sizing: border-box
+    border: 26px solid #333
+    border-color: $yellow-color transparent $yellow-color transparent
+    animation: lds-hourglass 1.2s infinite
+
+@keyframes lds-hourglass
+  0%
+    transform: rotate(0)
+    animation-timing-function: cubic-bezier(0.55, 0.055, 0.675, 0.19)
+
+  50%
+    transform: rotate(900deg)
+    animation-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1)
+
+  100%
+    transform: rotate(1800deg)
+
+.notfound
+  height: 100vh
+  font-weight: bolder
+  display: flex
+  justify-content: center
+  align-items: center
+  flex-direction: column
+  gap: 20px
+.notfound_link
+  border: 1px solid #000
+  border-radius: 8px
+  font-size: 16px
+  padding: 5px 8px
+  color: $white-color
+
+  .notfound_btn
+    cursor: pointer
+    border: 0
+    border-radius: 4px
+    font-weight: 600
+    margin: 0 0.6rem
+    width: 170px
+    padding: 0.6rem 0
+    box-shadow: 0 0 20px rgba($yellow-color, 0.2)
+    transition: 0.4s
+    &:hover
+      color: $white-color
+      box-shadow: 0 0 20px rgba($yellow-color, 0.6)
+      background-color: rgba($yellow-color, 1)

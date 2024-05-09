@@ -3,11 +3,10 @@ import WeatherForecastSlider from '@/components/WeatherForecastSlider'
 
 import styles from './main.module.sass'
 
-const apiKey = 'd4c1e7ff659473b3911f9bfb23585199'
-const city = 'Moscow'
-const apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}`
+const API_KEY = process.env.WEATHER_API_KEY
+const uniqueCityNames = ['Moscow', 'Saint Petersburg', 'Rostov-on-Don']
+const apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${uniqueCityNames[2]}&appid=${API_KEY}`
 
-// const apiUrl = `https://api.openweathermap.org/data/2.5/forecast?q=${city}&cnt=8&appid=${apiKey}`
 const currentDate = new Date().toLocaleDateString()
 
 const getWeatherData = async () => {
@@ -24,6 +23,8 @@ const getWeatherData = async () => {
 
 export default async function HomePage() {
 	const weatherData = await getWeatherData()
+
+	console.log(weatherData)
 
 	return (
 		<div className={styles.home_page}>

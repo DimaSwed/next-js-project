@@ -24,17 +24,17 @@ const MobileNav = ({ closeNav, nav }: TypeProps) => {
 			<hr />
 			<ul className="list_items">
 				<li className="list_item">
-					<Link className="link" href="/">
+					<Link onClick={closeNav} className="link" href="/">
 						Прогноз погоды
 					</Link>
 				</li>
 				<li className="list_item">
-					<Link className="link" href="/about">
+					<Link onClick={closeNav} className="link" href="/about">
 						О нас
 					</Link>
 				</li>
 				<li className="list_item">
-					<Link className="link" href="/setting">
+					<Link onClick={closeNav} className="link" href="/setting">
 						Настройки
 					</Link>
 				</li>
