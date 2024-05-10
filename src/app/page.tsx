@@ -1,7 +1,6 @@
 'use client'
 
 import React, { useState, useEffect } from 'react'
-
 import WeatherForecastSlider from '@/components/WeatherForecastSlider'
 import { getWeatherData } from '@/services/getWeatherData'
 import styles from './main.module.sass'
@@ -13,8 +12,20 @@ type TypeProps = {
 }
 
 export default function HomePage({ params: { city = 'Moscow' } }: TypeProps) {
-	const [selectedCity, setSelectedCity] = useState(city)
+	const [selectedCity, setSelectedCity] = useState(() => {
+		const storedCity =
+			typeof window !== 'undefined'
+				? localStorage.getItem('selectedCity')
+				: null
+		return storedCity ? storedCity : city
+	})
 	const [weatherData, setWeatherData] = useState<any>(null)
+
+	useEffect(() => {
+		if (typeof window !== 'undefined') {
+			localStorage.setItem('selectedCity', selectedCity)
+		}
+	}, [selectedCity])
 
 	useEffect(() => {
 		async function fetchWeatherData() {
