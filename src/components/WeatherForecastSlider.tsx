@@ -8,7 +8,7 @@ import WeatherForecast from './WeatherForecast'
 import { IWeather, IForecastday } from '@/types/types'
 
 interface WeatherForecastProps {
-	weatherData: (IWeather & IForecastday) | null
+	weatherData: IWeather | null
 }
 
 export default function WeatherForecastSlider({

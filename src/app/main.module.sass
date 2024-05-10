@@ -25,16 +25,32 @@ $white-color: #fff
 
   .city
     margin-bottom: 3.12rem
+    display: flex
+    justify-content: center
+    align-items: center
 
     .label
       font-weight: bold
+      position: relative
 
     .select
       margin-left: 0.6rem
-      padding: 0.3rem
-      border-radius: 5px
-      border: 1px solid #ccc
-      background-color: #f9f9f9
+      -webkit-appearance: none
+      -moz-appearance: none
+      appearance: none
+      height: 40px
+      padding: 10px 38px 10px 16px
+      transition: border-color .1s ease-in-out,box-shadow .1s ease-in-out
+      border: 1px solid #ddd
+      border-radius: 10px
+
+      &:hover
+        border: 1px solid #999
+
+      &:focus
+        border: 1px solid #999
+        box-shadow: 0 3px 5px 0 rgba(0,0,0,.2)
+        outline: none
 
   .text
     font-size: 1.25rem

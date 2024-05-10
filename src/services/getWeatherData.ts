@@ -1,11 +1,21 @@
-const apiKey = 'd4c1e7ff659473b3911f9bfb23585199'
-const city = 'Moscow'
-const apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}`
+// const API_KEY = process.env.WEATHER_API_KEY_2
+// const city = ['Moscow', 'Saint Petersburg', 'Rostov-on-Don']
+// const apiUrl = `https://api.weatherapi.com/v1/forecast.json?key=${API_KEY}&q=${city[2]}&days=10&lang=ru`
 
-export const getWeatherData = async () => {
-	const response = await fetch(apiUrl)
+const API_KEY = process.env.NEXT_PUBLIC_API_KEY
 
-	if (!response.ok) throw new Error('Unable to fetch weather.')
+export const getWeatherData = async (city: string) => {
+	const response = await fetch(
+		`https://api.weatherapi.com/v1/forecast.json?key=${API_KEY}&q=${city}&days=10&lang=ru`,
+		{
+			headers: { 'Content-type': 'application/json' },
+			next: {
+				revalidate: 3600
+			}
+		}
+	)
+
+	if (!response.ok) throw new Error('Невозможно получить данные о погоде.')
 
 	return response.json()
 }

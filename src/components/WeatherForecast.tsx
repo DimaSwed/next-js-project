@@ -31,6 +31,12 @@ const WeatherForecast: FC<TypeWeather> = ({
 			? 'Ростов-на-Дону'
 			: name
 
+	function convertKpaToMmHg(kpa: any) {
+		return kpa * 0.750062
+	}
+
+	const mmHgResult = convertKpaToMmHg(pressure)
+
 	return (
 		<div className="weather_wrapper">
 			<div className="weather_card">
@@ -45,8 +51,8 @@ const WeatherForecast: FC<TypeWeather> = ({
 				</div>
 				<h1>{dataday}</h1>
 				<div className="weather_parametrs">
-					<h2>{temperature} º</h2>
-					<h2>{pressure} кПа</h2>
+					<h2>{temperature} &deg;C</h2>
+					<h2>{mmHgResult.toFixed(1)} мм.рт.ст.</h2>
 					<h2>{speed} м/с</h2>
 					<h2>{clouds}</h2>
 				</div>
