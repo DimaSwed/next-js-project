@@ -20,17 +20,27 @@ export default function HomePage({ params: { city = 'Moscow' } }: TypeProps) {
 		return storedCity ? storedCity : city
 	})
 	const [weatherData, setWeatherData] = useState<any>(null)
+	// добавляем
+	const [loading, setLoading] = useState<boolean>(false)
+	const [error, setError] = useState<string | null>(null)
 
 	useEffect(() => {
 		if (typeof window !== 'undefined') {
 			localStorage.setItem('selectedCity', selectedCity)
 		}
 	}, [selectedCity])
-
+	// изменяем
 	useEffect(() => {
 		async function fetchWeatherData() {
-			const data = await getWeatherData(selectedCity)
-			setWeatherData(data)
+			setLoading(true)
+			try {
+				const data = await getWeatherData(selectedCity)
+				setWeatherData(data)
+				setLoading(false)
+			} catch (error: any) {
+				setError(error.message)
+				setLoading(false)
+			}
 		}
 
 		fetchWeatherData()
@@ -39,7 +49,6 @@ export default function HomePage({ params: { city = 'Moscow' } }: TypeProps) {
 	const handleCityChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
 		const newSelectedCity = event.target.value
 		setSelectedCity(newSelectedCity)
-		console.log(selectedCity)
 	}
 
 	return (
@@ -72,6 +81,8 @@ export default function HomePage({ params: { city = 'Moscow' } }: TypeProps) {
 			</div>
 			<hr />
 			<div className={styles.weather_items}>
+				{loading && <div className={styles.service}>Загрузка...</div>}
+				{error && <div className={styles.service}>Ошибка: {error}</div>}
 				{weatherData && (
 					<WeatherForecastSlider weatherData={weatherData} />
 				)}
