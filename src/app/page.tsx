@@ -82,8 +82,10 @@ export default function HomePage({ params: { city = 'Moscow' } }: TypeProps) {
 			<hr />
 			<div className={styles.weather_items}>
 				{loading && <div className={styles.service}>Загрузка...</div>}
-				{error && <div className={styles.service}>Ошибка: {error}</div>}
-				{weatherData && (
+				{!loading && error && (
+					<div className={styles.service}>Ошибка: {error}</div>
+				)}
+				{!loading && weatherData && (
 					<WeatherForecastSlider weatherData={weatherData} />
 				)}
 			</div>
