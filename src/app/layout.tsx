@@ -1,9 +1,9 @@
 import type { Metadata } from 'next'
 import { Lato } from 'next/font/google'
-
-import TheHeader from '@/components/TheHeader'
-import '../styles/global.sass'
 import TheFooter from '@/components/TheFooter'
+import TheHeader from '@/components/TheHeader'
+
+import '../styles/global.sass'
 
 const font_lato = Lato({
 	weight: ['300', '400', '700', '900'],
