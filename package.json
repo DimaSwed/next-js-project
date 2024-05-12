@@ -10,6 +10,7 @@
 	},
 	"dependencies": {
 		"@reduxjs/toolkit": "^2.2.4",
+		"aos": "^2.3.4",
 		"next": "14.2.3",
 		"next-auth": "^4.24.7",
 		"next-navigation": "^1.0.6",
@@ -23,6 +24,7 @@
 		"typeface-lato": "^1.1.13"
 	},
 	"devDependencies": {
+		"@types/aos": "^3.0.7",
 		"@types/node": "^20",
 		"@types/react": "^18",
 		"@types/react-dom": "^18",

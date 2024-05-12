@@ -1,6 +1,6 @@
-const API_KEY = process.env.NEXT_PUBLIC_API_KEY
+const API_KEY: string = process.env.NEXT_PUBLIC_API_KEY || ''
 
-export const getWeatherData = async (city: string) => {
+export const getWeatherData = async (city: string): Promise<any> => {
 	try {
 		const response = await fetch(
 			`https://api.weatherapi.com/v1/forecast.json?key=${API_KEY}&q=${city}&days=10&lang=ru`,

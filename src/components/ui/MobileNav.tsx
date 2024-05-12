@@ -1,7 +1,7 @@
 import React from 'react'
 import { FaXmark } from 'react-icons/fa6'
 import Link from 'next/link'
-import Logo from './Logo'
+import Logo from '../custom/Logo'
 
 import '@/styles/mobilenav.sass'
 

@@ -2,7 +2,7 @@
 
 import '@/styles/global.sass'
 
-export default function ErrorWrapper({ error }: { error: Error }) {
+const ErrorWrapper: React.FC<{ error: Error }> = ({ error }) => {
 	return (
 		<>
 			<div className="error_message">
@@ -14,3 +14,5 @@ export default function ErrorWrapper({ error }: { error: Error }) {
 		</>
 	)
 }
+
+export default ErrorWrapper

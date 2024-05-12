@@ -1,7 +1,9 @@
 import type { Metadata } from 'next'
 import { Lato } from 'next/font/google'
-import TheFooter from '@/components/TheFooter'
-import TheHeader from '@/components/TheHeader'
+import TheFooter from '@/components/custom/TheFooter'
+import TheHeader from '@/components/custom/TheHeader'
+
+import WeatherProvider from './WeatherProvider'
 
 import '../styles/global.sass'
 
@@ -24,9 +26,11 @@ export default function RootLayout({
 	return (
 		<html lang="en">
 			<body className={font_lato.className}>
-				<TheHeader />
-				<main className="container">{children}</main>
-				<TheFooter />
+				<WeatherProvider>
+					<TheHeader />
+					<main className="container">{children}</main>
+					<TheFooter />
+				</WeatherProvider>
 			</body>
 		</html>
 	)

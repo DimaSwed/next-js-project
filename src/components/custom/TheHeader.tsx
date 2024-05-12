@@ -1,8 +1,8 @@
 'use client'
 import React, { useState } from 'react'
-import { Navigation } from './Navigation'
-import Burger from './Burger'
-import MobileNav from './MobileNav'
+import { Navigation } from '../ui/Navigation'
+import Burger from '../ui/Burger'
+import MobileNav from '../ui/MobileNav'
 import Logo from './Logo'
 
 import '@/styles/header.sass'
