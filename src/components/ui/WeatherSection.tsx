@@ -16,14 +16,12 @@ const WeatherSection: React.FC<TypeProps> = ({
 }) => {
 	return (
 		<div
-			data-aos="zoom-out"
-			data-aos-delay="1500"
+			data-aos="zoom-in"
+			data-aos-delay="1300"
 			className={styles.weather_items}
 		>
 			{loading && <div className={styles.service}>Загрузка...</div>}
-			{!loading && error && (
-				<div className={styles.service}>Ошибка: {error}</div>
-			)}
+			{!loading && error && <div className={styles.service}>{error}</div>}
 			{!loading && weatherData && (
 				<WeatherForecastSlider weatherData={weatherData} />
 			)}
