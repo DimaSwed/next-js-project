@@ -1,11 +1,13 @@
 import { configureStore } from '@reduxjs/toolkit'
-import cityReducer from './slices/citySlice'
+import cityReducerSlice from './slices/citySlice'
 import { weatherApi } from '@/services/getWeatherData'
+import daysReducerSlice from './slices/chooseDaysNumberSlice'
 
 export const makeStore = () => {
   return configureStore({
     reducer: {
-      city: cityReducer,
+      city: cityReducerSlice,
+      days: daysReducerSlice,
       [weatherApi.reducerPath]: weatherApi.reducer
     },
     middleware: (getDefaultMiddleware) => getDefaultMiddleware().concat(weatherApi.middleware)

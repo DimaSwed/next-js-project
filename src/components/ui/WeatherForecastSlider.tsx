@@ -102,7 +102,13 @@ export default function WeatherForecastSlider() {
   }
 
   const selectedCity = useAppSelector((state) => state.city.value)
-  const { data = [], isLoading, isError } = useGetWeatherByCityQuery(selectedCity)
+  const selectedDays = typeof window !== 'undefined' ? localStorage.getItem('daysCount') ?? '' : ''
+
+  const {
+    data = [],
+    isLoading,
+    isError
+  } = useGetWeatherByCityQuery({ city: selectedCity, days: selectedDays })
 
   if (isLoading) return <div className={styles.service}>Загрузка...</div>
   if (isError) return <div className={styles.service}>{isError}</div>

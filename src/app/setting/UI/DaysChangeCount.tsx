@@ -1,27 +1,25 @@
 'use client'
 
-import React, { useState, useEffect } from 'react'
+import React, { useEffect } from 'react'
 import styles from '@/app/setting/setting.module.sass'
+import { useAppDispatch, useAppSelector } from '@/redux/hooks/hooks'
+import { daysReducer } from '@/redux/slices/chooseDaysNumberSlice'
 
 const DaysChangeCount = () => {
-  const isBrowser = typeof window !== 'undefined'
-
-  const [daysCount, setDaysCount] = useState(10)
+  const dispatch = useAppDispatch()
+  const selectedDaysStore = useAppSelector((state) => state.days.value)
 
   useEffect(() => {
-    if (isBrowser) {
-      const storedDaysCount = localStorage.getItem('daysCount')
-      const initialDaysCount = storedDaysCount ? parseInt(storedDaysCount) : 10
-      setDaysCount(initialDaysCount)
+    const storedDaysCount = localStorage.getItem('daysCount')
+    if (storedDaysCount) {
+      dispatch(daysReducer(storedDaysCount))
     }
-  }, [isBrowser])
+  }, [dispatch])
 
-  const changeDaysCount = (event: React.ChangeEvent<HTMLSelectElement>) => {
-    const newDaysCount = parseInt(event.target.value)
-    setDaysCount(newDaysCount)
-    if (isBrowser) {
-      localStorage.setItem('daysCount', newDaysCount.toString())
-    }
+  const handleDaysChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
+    const newDaysCount = event.target.value
+    dispatch(daysReducer(newDaysCount))
+    localStorage.setItem('daysCount', newDaysCount)
   }
 
   return (
@@ -29,8 +27,10 @@ const DaysChangeCount = () => {
       <h2 className={styles.title_h2}>Изменить количество дней прогноза погоды :</h2>
       <select
         className={styles.select_days}
-        value={daysCount.toString()}
-        onChange={changeDaysCount}
+        id="day"
+        name="days"
+        value={selectedDaysStore}
+        onChange={handleDaysChange}
       >
         <option value="1">1 день</option>
         <option value="2">2 дня</option>

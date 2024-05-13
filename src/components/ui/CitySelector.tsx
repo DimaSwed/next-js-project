@@ -37,7 +37,7 @@
 import React, { useEffect } from 'react'
 import styles from '@/app/main.module.sass'
 import { useAppDispatch, useAppSelector } from '@/redux/hooks/hooks'
-import { chooseCity } from '@/redux/slices/citySlice'
+import { cityReducer } from '@/redux/slices/citySlice'
 
 const CitySelector = () => {
   const dispatch = useAppDispatch()
@@ -46,13 +46,13 @@ const CitySelector = () => {
   useEffect(() => {
     const storedCity = localStorage.getItem('selectedCity')
     if (storedCity) {
-      dispatch(chooseCity(storedCity))
+      dispatch(cityReducer(storedCity))
     }
   }, [dispatch])
 
   const handleCityChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
     const selectedCity = event.target.value
-    dispatch(chooseCity(selectedCity))
+    dispatch(cityReducer(selectedCity))
     localStorage.setItem('selectedCity', selectedCity)
   }
 

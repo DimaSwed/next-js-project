@@ -29,8 +29,8 @@ export const weatherApi = createApi({
   reducerPath: 'weatherApi',
   baseQuery: fetchBaseQuery({ baseUrl: 'https://api.weatherapi.com/v1/' }),
   endpoints: (builder) => ({
-    getWeatherByCity: builder.query<IWeather, string>({
-      query: (city) => `forecast.json?key=${API_KEY}&q=${city}&days=10&lang=ru`
+    getWeatherByCity: builder.query<IWeather, { city: string; days: string }>({
+      query: ({ city, days }) => `forecast.json?key=${API_KEY}&q=${city}&days=${days}&lang=ru`
     })
   })
 })
