@@ -41,7 +41,7 @@ export interface IForecast {
 }
 
 export interface IForecastday {
-	date: Date
+	date: any
 	date_epoch: number
 	day: IDay
 	astro: IAstro

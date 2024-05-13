@@ -1,16 +1,18 @@
 import { configureStore } from '@reduxjs/toolkit'
 import cityReducer from './slices/citySlice'
+import { weatherApi } from '@/services/getWeatherData'
 
 export const makeStore = () => {
 	return configureStore({
 		reducer: {
-			city: cityReducer
-		}
+			city: cityReducer,
+			[weatherApi.reducerPath]: weatherApi.reducer
+		},
+		middleware: getDefaultMiddleware =>
+			getDefaultMiddleware().concat(weatherApi.middleware)
 	})
 }
 
-// Infer the type of makeStore
 export type AppStore = ReturnType<typeof makeStore>
-// Infer the `RootState` and `AppDispatch` types from the store itself
 export type RootState = ReturnType<AppStore['getState']>
 export type AppDispatch = AppStore['dispatch']

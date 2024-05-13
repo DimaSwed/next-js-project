@@ -93,7 +93,7 @@
 // 	)
 // }
 import React, { useState, useEffect } from 'react'
-import { getWeatherData } from '@/services/getWeatherData'
+// import { getWeatherData } from '@/services/getWeatherData'
 import styles from './main.module.sass'
 import CitySelector from '@/components/ui/CitySelector'
 import WeatherSection from '@/components/ui/WeatherSection'
@@ -108,38 +108,38 @@ type TypeProps = {
 }
 
 export default function HomePage({ params: { city = 'Moscow' } }: TypeProps) {
-	const [selectedCity, setSelectedCity] = useState(() => {
-		const storedCity =
-			typeof window !== 'undefined'
-				? localStorage.getItem('selectedCity')
-				: null
-		return storedCity ? storedCity : city
-	})
-	const [weatherData, setWeatherData] = useState<any>(null)
-	const [loading, setLoading] = useState<boolean>(false)
-	const [error, setError] = useState<string | null>(null)
+	// const [selectedCity, setSelectedCity] = useState(() => {
+	// 	const storedCity =
+	// 		typeof window !== 'undefined'
+	// 			? localStorage.getItem('selectedCity')
+	// 			: null
+	// 	return storedCity ? storedCity : city
+	// })
+	// const [weatherData, setWeatherData] = useState<any>(null)
+	// const [loading, setLoading] = useState<boolean>(false)
+	// const [error, setError] = useState<string | null>(null)
 
-	useEffect(() => {
-		if (typeof window !== 'undefined') {
-			localStorage.setItem('selectedCity', selectedCity)
-		}
-	}, [selectedCity])
+	// useEffect(() => {
+	// 	if (typeof window !== 'undefined') {
+	// 		localStorage.setItem('selectedCity', selectedCity)
+	// 	}
+	// }, [selectedCity])
 
-	useEffect(() => {
-		async function fetchWeatherData() {
-			setLoading(true)
-			try {
-				const data = await getWeatherData(selectedCity)
-				setWeatherData(data)
-				setLoading(false)
-			} catch (error: any) {
-				setError(error.message)
-				setLoading(false)
-			}
-		}
+	// useEffect(() => {
+	// 	async function fetchWeatherData() {
+	// 		setLoading(true)
+	// 		try {
+	// 			const data = await getWeatherData(selectedCity)
+	// 			setWeatherData(data)
+	// 			setLoading(false)
+	// 		} catch (error: any) {
+	// 			setError(error.message)
+	// 			setLoading(false)
+	// 		}
+	// 	}
 
-		fetchWeatherData()
-	}, [selectedCity])
+	// 	fetchWeatherData()
+	// }, [selectedCity])
 
 	useEffect(() => {
 		const initAos = async () => {
@@ -155,10 +155,10 @@ export default function HomePage({ params: { city = 'Moscow' } }: TypeProps) {
 		initAos()
 	}, [])
 
-	const handleCityChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
-		const newSelectedCity = event.target.value
-		setSelectedCity(newSelectedCity)
-	}
+	// const handleCityChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
+	// 	const newSelectedCity = event.target.value
+	// 	setSelectedCity(newSelectedCity)
+	// }
 
 	return (
 		<div className={styles.home_page}>
@@ -171,8 +171,8 @@ export default function HomePage({ params: { city = 'Moscow' } }: TypeProps) {
 					Еженедельный прогноз погоды
 				</h1>
 				<CitySelector
-					selectedCity={selectedCity}
-					handleCityChange={handleCityChange}
+				// selectedCity={selectedCity}
+				// handleCityChange={handleCityChange}
 				/>
 				<p
 					className={styles.text}
@@ -186,11 +186,12 @@ export default function HomePage({ params: { city = 'Moscow' } }: TypeProps) {
 			</div>
 			<hr />
 			<div className={styles.weather_items}>
-				<WeatherSection
-					loading={loading}
-					error={error}
-					weatherData={weatherData}
-				/>
+				{/* <WeatherSection
+				loading={loading}
+				error={error}
+				weatherData={weatherData}
+				/> */}
+				<WeatherSection />
 			</div>
 		</div>
 	)

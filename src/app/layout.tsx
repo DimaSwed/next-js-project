@@ -2,9 +2,7 @@ import type { Metadata } from 'next'
 import { Lato } from 'next/font/google'
 import TheFooter from '@/components/custom/TheFooter'
 import TheHeader from '@/components/custom/TheHeader'
-
 import WeatherProvider from './WeatherProvider'
-
 import '../styles/global.sass'
 
 const font_lato = Lato({
