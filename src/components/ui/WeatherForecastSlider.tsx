@@ -71,13 +71,11 @@
 import React from 'react'
 import Carousel from 'react-multi-carousel'
 import 'react-multi-carousel/lib/styles.css'
-import WeatherForecast from './WeatherForecast'
 import { useGetWeatherByCityQuery } from '@/services/getWeatherData'
-import styles from '@/app/main.module.sass'
-
 import { useAppSelector } from '@/redux/hooks/hooks'
-
 import { IForecastday } from '@/types/types'
+import WeatherForecast from './WeatherForecast'
+import styles from '@/app/main.module.sass'
 
 export default function WeatherForecastSlider() {
   const responsive = {
@@ -103,22 +101,12 @@ export default function WeatherForecastSlider() {
     }
   }
 
-  // const [selectedCity, setSelectedCity] = useState('')
-
-  // useEffect(() => {
-  // 	const storedCity = localStorage.getItem('selectedCity')
-  // 	if (storedCity) {
-  // 		setSelectedCity(storedCity)
-  // 	}
-  // }, [])
-
   const selectedCity = useAppSelector((state) => state.city.value)
-
   const { data = [], isLoading, isError } = useGetWeatherByCityQuery(selectedCity)
 
-  console.log(data)
   if (isLoading) return <div className={styles.service}>Загрузка...</div>
   if (isError) return <div className={styles.service}>{isError}</div>
+
   return (
     <Carousel
       additionalTransfrom={0}

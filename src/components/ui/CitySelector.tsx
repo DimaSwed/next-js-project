@@ -34,25 +34,24 @@
 // export default CitySelector
 
 'use client'
-import React, { useEffect, useState } from 'react'
+import React, { useEffect } from 'react'
 import styles from '@/app/main.module.sass'
-import { useAppDispatch } from '@/redux/hooks/hooks'
+import { useAppDispatch, useAppSelector } from '@/redux/hooks/hooks'
 import { chooseCity } from '@/redux/slices/citySlice'
 
 const CitySelector = () => {
   const dispatch = useAppDispatch()
-  const [selectedCity, setSelectedCity] = useState('')
+  const selectedCityStore = useAppSelector((state) => state.city.value)
 
   useEffect(() => {
     const storedCity = localStorage.getItem('selectedCity')
     if (storedCity) {
-      setSelectedCity(storedCity)
+      dispatch(chooseCity(storedCity))
     }
-  }, [])
+  }, [dispatch])
 
   const handleCityChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
     const selectedCity = event.target.value
-    setSelectedCity(selectedCity)
     dispatch(chooseCity(selectedCity))
     localStorage.setItem('selectedCity', selectedCity)
   }
@@ -66,7 +65,7 @@ const CitySelector = () => {
         className={styles.select}
         id="city"
         name="cities"
-        value={selectedCity}
+        value={selectedCityStore}
         onChange={handleCityChange}
       >
         <option value="Moscow">Москва</option>
