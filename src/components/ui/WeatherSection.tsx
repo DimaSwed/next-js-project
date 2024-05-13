@@ -36,15 +36,11 @@ import WeatherForecastSlider from './WeatherForecastSlider'
 import styles from '@/app/main.module.sass'
 
 const WeatherSection = () => {
-	return (
-		<div
-			data-aos="zoom-in"
-			data-aos-delay="1000"
-			className={styles.weather_items}
-		>
-			<WeatherForecastSlider />
-		</div>
-	)
+  return (
+    <div data-aos="zoom-in" data-aos-delay="1000" className={styles.weather_items}>
+      <WeatherForecastSlider />
+    </div>
+  )
 }
 
 export default WeatherSection

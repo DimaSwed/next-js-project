@@ -28,11 +28,11 @@ import { makeStore, AppStore } from '@/redux/store'
 import { chooseCity } from '@/redux/slices/citySlice'
 
 export default function StoreProvider({ children }: { children: ReactNode }) {
-	const storeRef = useRef<AppStore>()
-	if (!storeRef.current) {
-		storeRef.current = makeStore()
-		storeRef.current.dispatch(chooseCity(''))
-	}
+  const storeRef = useRef<AppStore>()
+  if (!storeRef.current) {
+    storeRef.current = makeStore()
+    storeRef.current.dispatch(chooseCity(''))
+  }
 
-	return <Provider store={storeRef.current}>{children}</Provider>
+  return <Provider store={storeRef.current}>{children}</Provider>
 }

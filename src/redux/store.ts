@@ -3,14 +3,13 @@ import cityReducer from './slices/citySlice'
 import { weatherApi } from '@/services/getWeatherData'
 
 export const makeStore = () => {
-	return configureStore({
-		reducer: {
-			city: cityReducer,
-			[weatherApi.reducerPath]: weatherApi.reducer
-		},
-		middleware: getDefaultMiddleware =>
-			getDefaultMiddleware().concat(weatherApi.middleware)
-	})
+  return configureStore({
+    reducer: {
+      city: cityReducer,
+      [weatherApi.reducerPath]: weatherApi.reducer
+    },
+    middleware: (getDefaultMiddleware) => getDefaultMiddleware().concat(weatherApi.middleware)
+  })
 }
 
 export type AppStore = ReturnType<typeof makeStore>
