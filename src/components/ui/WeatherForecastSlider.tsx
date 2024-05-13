@@ -82,22 +82,26 @@ export default function WeatherForecastSlider() {
     desktop: {
       breakpoint: { max: 3000, min: 1324 },
       items: 4,
-      slidesToSlide: 1
+      slidesToSlide: 1,
+      centerMode: false // Для больших экранов центрирование выключено
     },
     tablet: {
       breakpoint: { max: 1324, min: 764 },
       items: 3,
-      slidesToSlide: 1
+      slidesToSlide: 1,
+      centerMode: false // Для планшетов центрирование выключено
     },
     mobile: {
       breakpoint: { max: 764, min: 468 },
       items: 2,
-      slidesToSlide: 1
+      slidesToSlide: 1,
+      centerMode: true // Для мобильных экранов центрирование включено
     },
     mobile_min: {
       breakpoint: { max: 468, min: 0 },
       items: 1,
-      slidesToSlide: 1
+      slidesToSlide: 1,
+      centerMode: true // Для мобильных экранов центрирование включено
     }
   }
 
@@ -115,6 +119,7 @@ export default function WeatherForecastSlider() {
 
   return (
     <Carousel
+      containerClass="react-multi-carousel-list"
       additionalTransfrom={0}
       arrows={true}
       autoPlay={true}

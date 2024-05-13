@@ -108,7 +108,7 @@ export default function HomePage() {
         duration: 1500,
         easing: 'ease',
         once: true,
-        anchorPlacement: 'top-bottom'
+        anchorPlacement: 'center-center'
       })
     }
 

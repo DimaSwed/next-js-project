@@ -1,5 +1,5 @@
 import React, { FC } from 'react'
-// import Image from 'next/image'
+import Image from 'next/image'
 
 import '@/styles/weatherforecast.sass'
 
@@ -41,13 +41,7 @@ const WeatherForecast: FC<TypeWeather> = ({
     <div className="weather_wrapper">
       <div className="weather_card">
         <div className="weather_icon">
-          <img
-            src={`https:${icon}`}
-            className="icon_wind"
-            alt="icon"
-            // width={100}
-            // height={100}
-          />
+          <Image src={`https:${icon}`} className="icon_wind" alt="icon" width={60} height={60} />
         </div>
         <h1>{dataday}</h1>
         <div className="weather_parametrs">

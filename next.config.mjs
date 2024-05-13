@@ -1,12 +1,15 @@
 /** @type {import('next').NextConfig} */
-import path from "path";
+import path from 'path'
 
-const __dirname = path.dirname(new URL(import.meta.url).pathname);
+const __dirname = path.dirname(new URL(import.meta.url).pathname)
 
 const nextConfig = {
   sassOptions: {
-    includePaths: [path.join(__dirname, "styles")],
+    includePaths: [path.join(__dirname, 'styles')]
   },
-};
+  images: {
+    domains: ['cdn.weatherapi.com']
+  }
+}
 
-export default nextConfig;
+export default nextConfig
