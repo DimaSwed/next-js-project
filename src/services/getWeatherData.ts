@@ -21,18 +21,15 @@
 // 	}
 // }
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react'
-const API_KEY: string = process.env.NEXT_PUBLIC_API_KEY || ''
+import { IWeather } from '@/types/types'
 
-// type TypeProps = {
-//   city: string
-//   days: string
-// }
+const API_KEY: string = process.env.NEXT_PUBLIC_API_KEY || ''
 
 export const weatherApi = createApi({
   reducerPath: 'weatherApi',
   baseQuery: fetchBaseQuery({ baseUrl: 'https://api.weatherapi.com/v1/' }),
   endpoints: (builder) => ({
-    getWeatherByCity: builder.query({
+    getWeatherByCity: builder.query<IWeather, string>({
       query: (city) => `forecast.json?key=${API_KEY}&q=${city}&days=10&lang=ru`
     })
   })
