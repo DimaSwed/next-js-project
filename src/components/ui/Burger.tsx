@@ -3,7 +3,6 @@ import { FaBars } from 'react-icons/fa'
 
 import '@/styles/burger.sass'
 
-// props type
 type TypeProps = {
   openNav: () => void
 }

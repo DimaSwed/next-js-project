@@ -8,7 +8,6 @@ const Toggle = () => {
   const initialDarkMode = isBrowser && localStorage.getItem('darkMode') === 'true'
   const [darkMode, setDarkMode] = useState(initialDarkMode)
 
-  // Функция для изменения темы и сохранения ее в localStorage
   const toggleTheme = () => {
     const newMode = !darkMode
     setDarkMode(newMode)

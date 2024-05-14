@@ -17,13 +17,6 @@ const GitHubLinksToggle = () => {
     }
   }, [dispatch])
 
-  //   useEffect(() => {
-  //     const linksStatus = localStorage.getItem('linksVisibility')
-  //     if (linksStatus) {
-  //       dispatch(linksReducer(Boolean(linksStatus)))
-  //     }
-  //   }, [dispatch])
-
   const toggleLinksChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     const linksVisibilityStatus = event.target.checked
     dispatch(linksReducer(linksVisibilityStatus))
