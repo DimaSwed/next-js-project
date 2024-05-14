@@ -1,22 +1,33 @@
 'use client'
 
-import React, { useState, useEffect } from 'react'
+import React, { useEffect } from 'react'
 import Link from 'next/link'
+import { useAppDispatch, useAppSelector } from '@/redux/hooks/hooks'
+import { linksReducer } from '@/redux/slices/linksSlice'
 import styles from '@/app/setting/setting.module.sass'
 
 const GitHubLinksToggle = () => {
-  const [showGitHubLinks, setShowGitHubLinks] = useState(false)
+  const dispatch = useAppDispatch()
+  const linksVisibility = useAppSelector((state) => state.links.value)
 
   useEffect(() => {
-    // Получение значения из localStorage при инициализации компонента
-    const storedValue = localStorage.getItem('showGitHubLinks')
-    setShowGitHubLinks(storedValue === 'true')
-  }, [])
+    const linksStatus = localStorage.getItem('linksVisibility')
+    if (linksStatus !== null) {
+      dispatch(linksReducer(linksStatus === 'true'))
+    }
+  }, [dispatch])
 
-  const toggleGitHubLinks = () => {
-    const newValue = !showGitHubLinks
-    setShowGitHubLinks(newValue)
-    localStorage.setItem('showGitHubLinks', newValue.toString())
+  //   useEffect(() => {
+  //     const linksStatus = localStorage.getItem('linksVisibility')
+  //     if (linksStatus) {
+  //       dispatch(linksReducer(Boolean(linksStatus)))
+  //     }
+  //   }, [dispatch])
+
+  const toggleLinksChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    const linksVisibilityStatus = event.target.checked
+    dispatch(linksReducer(linksVisibilityStatus))
+    localStorage.setItem('linksVisibility', String(linksVisibilityStatus))
   }
 
   return (
@@ -32,8 +43,8 @@ const GitHubLinksToggle = () => {
         <input
           className={styles.input_checkbox}
           type="checkbox"
-          checked={showGitHubLinks}
-          onChange={toggleGitHubLinks}
+          checked={linksVisibility}
+          onChange={toggleLinksChange}
         />
       </label>
     </div>
