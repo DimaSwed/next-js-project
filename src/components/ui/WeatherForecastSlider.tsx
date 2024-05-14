@@ -83,25 +83,25 @@ export default function WeatherForecastSlider() {
       breakpoint: { max: 3000, min: 1324 },
       items: 4,
       slidesToSlide: 1,
-      centerMode: false // Для больших экранов центрирование выключено
+      centerMode: false
     },
     tablet: {
       breakpoint: { max: 1324, min: 764 },
       items: 3,
       slidesToSlide: 1,
-      centerMode: false // Для планшетов центрирование выключено
+      centerMode: false
     },
     mobile: {
       breakpoint: { max: 764, min: 468 },
       items: 2,
       slidesToSlide: 1,
-      centerMode: true // Для мобильных экранов центрирование включено
+      centerMode: true
     },
     mobile_min: {
       breakpoint: { max: 468, min: 0 },
       items: 1,
       slidesToSlide: 1,
-      centerMode: true // Для мобильных экранов центрирование включено
+      centerMode: true
     }
   }
 
@@ -113,6 +113,7 @@ export default function WeatherForecastSlider() {
     isLoading,
     isError
   } = useGetWeatherByCityQuery({ city: selectedCity, days: selectedDays })
+  console.log(data)
 
   if (isLoading) return <div className={styles.service}>Загрузка...</div>
   if (isError) return <div className={styles.service}>{isError}</div>
@@ -131,18 +132,20 @@ export default function WeatherForecastSlider() {
       removeArrowOnDeviceType={['mobile', 'mobile_min']}
       partialVisible={false}
     >
-      {data?.forecast?.forecastday.map((forecast: IForecastday) => (
-        <WeatherForecast
-          key={forecast?.date_epoch}
-          dataday={forecast?.date}
-          temperature={forecast?.day?.maxtemp_c}
-          pressure={forecast?.hour[0]?.pressure_mb}
-          speed={forecast?.day.maxwind_kph}
-          clouds={forecast?.day.condition?.text}
-          name={data?.location?.name}
-          icon={forecast?.day?.condition?.icon}
-        />
-      ))}
+      {data &&
+        'forecast' in data &&
+        data.forecast.forecastday.map((forecast: IForecastday) => (
+          <WeatherForecast
+            key={forecast?.date_epoch}
+            dataday={forecast?.date}
+            temperature={forecast?.day?.maxtemp_c}
+            pressure={forecast?.hour[0]?.pressure_mb}
+            speed={forecast?.day.maxwind_kph}
+            clouds={forecast?.day.condition?.text}
+            name={data?.location?.name}
+            icon={forecast?.day?.condition?.icon}
+          />
+        ))}
     </Carousel>
   )
 }
