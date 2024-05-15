@@ -40,6 +40,7 @@
 import React, { useEffect } from 'react'
 import { useAppSelector, useAppDispatch } from '@/redux/hooks/hooks'
 import { themeReducer } from '@/redux/slices/themeSlice'
+import { FaSun, FaMoon } from 'react-icons/fa'
 
 import styles from '@/app/setting/setting.module.sass'
 
@@ -66,8 +67,25 @@ const ThemeToggle = () => {
     <div>
       <h2 className={styles.title_h2}>Тема приложения</h2>
       <div className={styles.toggle_wrapper}>
-        <p className={styles.paragraph}>Текущая тема: {currentTheme}</p>
-        <button value={currentTheme} onClick={themeReducerChange}>
+        <div className={styles.paragraph}>
+          Текущая тема:{' '}
+          {currentTheme === 'Dark' ? (
+            <FaMoon className={styles.moon_icon} /> // Иконка луны для темной темы
+          ) : (
+            <FaSun className={styles.sun_icon} /> // Иконка солнца для светлой темы
+          )}
+        </div>
+
+        <button
+          role="button"
+          value={currentTheme}
+          onClick={themeReducerChange}
+          className={styles.theme_toggle}
+          id="theme-toggle"
+          title="Toggles light & dark"
+          aria-label="auto"
+          aria-live="polite"
+        >
           Сменить тему
         </button>
       </div>

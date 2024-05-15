@@ -1,13 +1,21 @@
 @import 'reset.sass'
+// @import 'burger.sass'
+// @import 'footer.sass'
+// @import 'header.sass'
+// @import 'mobilenav.sass'
+// @import 'weatherforecast.sass'
+// @import '../app/main.module'
+// @import '../app/about/about.module'
+// @import '../app/setting/setting.module'
 
 :root
   // --text-color: #fff
-  --white-color: #fff
   // --hover-color: #ff9b27
   // --background-color: #2C2C32
   // --mobile-background-color: #2C2C32
-  --grey-color: #636363
   // --footer-icon-color: #636363
+  --white-color: #fff
+  --grey-color: #636363
   --greylight-color: #B8B8B8
   --blue-icon-color: #2092A9
   --yellow-icon-color: #FFCD41
@@ -22,7 +30,8 @@ body
   margin: 0
   -webkit-font-smoothing: antialiased
   -moz-osx-font-smoothing: grayscale
-  background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.8)), url('../../public/images/gory_skaly_sneg_189555_1920x1080.jpg')
+  // background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.8)), url('../../public/images/gory_skaly_sneg_189555_1920x1080.jpg')
+  background-image: linear-gradient(to top, rgba(0, 0, 0, 0.2), transparent), url('../../public/images/background-light-theme.jpg')
   background-size: cover
   background-position: center
 
@@ -38,7 +47,7 @@ body
   html
     color-scheme: light
   body
-    background-image: linear-gradient(to top, rgba(0, 0, 0, 0.1), transparent), url('https://sotni.ru/wp-content/uploads/2023/08/oboi-samsung-galaxy-note-8-1.webp')
+    background-image: linear-gradient(to top, rgba(0, 0, 0, 0.1), transparent), url('../../public/images/background-light-theme.jpg')
 
 @media (prefers-color-scheme: dark)
   :root
@@ -49,8 +58,8 @@ body
     --footer-icon-color: #636363
 
 @media (prefers-color-scheme: dark)
-  // html
-  //   color-scheme: dark
+  html
+    color-scheme: dark
   body
     background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.8)), url('../../public/images/gory_skaly_sneg_189555_1920x1080.jpg')
 

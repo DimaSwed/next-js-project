@@ -6,7 +6,7 @@ export interface LinkState {
 }
 
 const initialState = {
-  currentTheme: 'dark'
+  currentTheme: 'Dark'
 }
 
 export const themeSlice = createSlice({
@@ -14,7 +14,7 @@ export const themeSlice = createSlice({
   initialState,
   reducers: {
     themeReducer: (state, action: PayloadAction<string>) => {
-      state.currentTheme = action.payload === 'dark' ? 'light' : 'dark'
+      state.currentTheme = action.payload === 'Dark' ? 'Light' : 'Dark'
     }
   }
 })
