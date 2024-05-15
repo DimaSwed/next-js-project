@@ -1,19 +1,12 @@
 @import 'reset.sass'
-// @import 'burger.sass'
-// @import 'footer.sass'
-// @import 'header.sass'
-// @import 'mobilenav.sass'
-// @import 'weatherforecast.sass'
-// @import '../app/main.module'
-// @import '../app/about/about.module'
-// @import '../app/setting/setting.module'
 
 :root
-  // --text-color: #fff
-  // --hover-color: #ff9b27
-  // --background-color: #2C2C32
-  // --mobile-background-color: #2C2C32
-  // --footer-icon-color: #636363
+  --text-color: #fff
+  --hover-color: #ff9b27
+  --background-color: #2C2C32
+  --background-color-button: #2C2C32
+  --mobile-background-color: #2C2C32
+  --footer-icon-color: #636363
   --white-color: #fff
   --grey-color: #636363
   --greylight-color: #B8B8B8
@@ -23,6 +16,7 @@
   --hover-color-two: #408cd2
   --color-black: black
   --grey-superlight-color: #fafafa
+  --background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.8)), url('../../public/images/gory_skaly_sneg_189555_1920x1080.jpg')
 
 body
   font-family: 'Lato', sans-serif
@@ -30,8 +24,7 @@ body
   margin: 0
   -webkit-font-smoothing: antialiased
   -moz-osx-font-smoothing: grayscale
-  // background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.8)), url('../../public/images/gory_skaly_sneg_189555_1920x1080.jpg')
-  background-image: linear-gradient(to top, rgba(0, 0, 0, 0.2), transparent), url('../../public/images/background-light-theme.jpg')
+  background-image: var(--background-image)
   background-size: cover
   background-position: center
 
@@ -43,25 +36,28 @@ body
     --mobile-background-color: #abb9c5
     --footer-icon-color: white
 
-@media (prefers-color-scheme: light)
   html
     color-scheme: light
   body
-    background-image: linear-gradient(to top, rgba(0, 0, 0, 0.1), transparent), url('../../public/images/background-light-theme.jpg')
+    background-image: var(--background-light-image)
 
-@media (prefers-color-scheme: dark)
-  :root
-    --text-color: #fff
-    --hover-color: #ff9b27
-    --background-color: #2C2C32
-    --mobile-background-color: #2C2C32
-    --footer-icon-color: #636363
+[data-theme="dark"] 
+  --text-color: #fff
+  --hover-color: #ff9b27
+  --background-color: #2C2C32
+  --mobile-background-color: #2C2C32
+  --footer-icon-color: #636363
+  --background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.8)), url('../../public/images/gory_skaly_sneg_189555_1920x1080.jpg')
 
-@media (prefers-color-scheme: dark)
-  html
-    color-scheme: dark
-  body
-    background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.8)), url('../../public/images/gory_skaly_sneg_189555_1920x1080.jpg')
+[data-theme="light"] 
+  --text-color: black
+  --hover-color: #408cd2
+  --background-color: transparent
+  --background-color-button: #B8B8B8
+  --mobile-background-color: #abb9c5
+  --footer-icon-color: black
+  --background-image: linear-gradient(to top, rgba(0, 0, 0, 0.1), transparent), url('../../public/images/background-light-theme.jpg')
+  --grey-superlight-color: white
 
 .container
   color: var(--text-color)

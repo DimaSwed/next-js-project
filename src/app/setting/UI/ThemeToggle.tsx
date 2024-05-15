@@ -1,42 +1,5 @@
 'use client'
 
-// import React, { useState } from 'react'
-
-// import styles from '@/app/setting/setting.module.sass'
-
-// const ThemeToggle = () => {
-//   const isBrowser = typeof window !== 'undefined'
-//   const initialDarkMode = isBrowser && localStorage.getItem('darkMode') === 'true'
-//   const [darkMode, setDarkMode] = useState(initialDarkMode)
-
-//   const themeReducer = () => {
-//     const newMode = !darkMode
-//     setDarkMode(newMode)
-//     localStorage.setItem('darkMode', newMode ? 'true' : 'false')
-//   }
-
-//   return (
-//     <div>
-//       <h2 className={styles.title_h2}>Тема приложения</h2>
-//       <div className={styles.toggle_wrapper}>
-//         <p className={styles.paragraph}>Сменить тему:</p>
-//         <label className={styles.switch}>
-//           <input
-//             className={styles.input_switch_chekbox}
-//             type="checkbox"
-//             checked={darkMode}
-//             onChange={themeReducer}
-//           />
-//           <div className={styles.switch_wrap}></div>
-//         </label>
-//       </div>
-//     </div>
-//   )
-// }
-
-// export default ThemeToggle
-'use client'
-
 import React, { useEffect } from 'react'
 import { useAppSelector, useAppDispatch } from '@/redux/hooks/hooks'
 import { themeReducer } from '@/redux/slices/themeSlice'
@@ -49,18 +12,19 @@ const ThemeToggle = () => {
   const currentTheme = useAppSelector((state) => state.theme.currentTheme)
 
   useEffect(() => {
-    const themeStatus = localStorage.getItem('theme')
-    // console.log(themeStatus)
-    if (themeStatus) {
-      dispatch(themeReducer(themeStatus))
-    }
+    const themeStatus = localStorage.getItem('theme') || 'dark'
+    dispatch(themeReducer(themeStatus))
+    document.documentElement.setAttribute('data-theme', themeStatus)
   }, [dispatch])
 
-  const themeReducerChange = (event: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
-    const themeStatusCheck = event.currentTarget.value
-    // console.log(themeStatusCheck)
-    dispatch(themeReducer(themeStatusCheck))
-    localStorage.setItem('theme', themeStatusCheck)
+  const themeReducerChange = () => {
+    const newTheme = currentTheme === 'dark' ? 'light' : 'dark'
+    // console.log('присваиваю переменной при нажатии на кнопку', newTheme)
+    dispatch(themeReducer(newTheme))
+    // console.log('отправляю в store при нажатии на кнопку', newTheme)
+    localStorage.setItem('theme', newTheme)
+    // console.log('отправляю в ls при нажатии на кнопку', newTheme)
+    document.documentElement.setAttribute('data-theme', newTheme)
   }
 
   return (
@@ -69,10 +33,10 @@ const ThemeToggle = () => {
       <div className={styles.toggle_wrapper}>
         <div className={styles.paragraph}>
           Текущая тема:{' '}
-          {currentTheme === 'Dark' ? (
-            <FaMoon className={styles.moon_icon} /> // Иконка луны для темной темы
+          {currentTheme === 'dark' ? (
+            <FaMoon className={styles.moon_icon} />
           ) : (
-            <FaSun className={styles.sun_icon} /> // Иконка солнца для светлой темы
+            <FaSun className={styles.sun_icon} />
           )}
         </div>
 

@@ -10,6 +10,11 @@ import WeatherForecastSlider from '@/components/ui/WeatherForecastSlider'
 
 export default function HomePage() {
   useEffect(() => {
+    const themeStatus = localStorage.getItem('theme')
+    document.documentElement.setAttribute('data-theme', String(themeStatus))
+  }, [])
+
+  useEffect(() => {
     const initAos = async () => {
       await import('aos')
       AOS.init({
