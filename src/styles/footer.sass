@@ -1,9 +1,5 @@
-$yellow-color: #ff9b27
-$background-color: #2C2C32
-$grey-color: #636363
-
 footer
-  background-color: $background-color
+  background-color: var(--background-color)
   // height: 12vh
   // height: 80px
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1)
@@ -23,13 +19,13 @@ footer
     padding: 0
 
   .link
-    color: $grey-color
+    color: var(--footer-icon-color)
     cursor: pointer
     border-bottom: none
     font-size: 2.5rem
 
   .link:hover
-    color: $yellow-color
+    color: var(--hover-color)
 
 @media (max-width: 320px)
 footer

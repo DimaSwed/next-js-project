@@ -9,19 +9,22 @@ import styles from '@/app/setting/setting.module.sass'
 const GitHubLinksToggle = () => {
   const dispatch = useAppDispatch()
   const linksVisibility = useAppSelector((state) => state.links.value)
+  // console.log('получаем из store:', linksVisibility)
+
+  const toggleLinksChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    const linksVisibilityStatus = event.target.checked
+    // console.log('получаем при нажатии toggle:', linksVisibilityStatus)
+    dispatch(linksReducer(linksVisibilityStatus))
+    localStorage.setItem('linksVisibility', String(linksVisibilityStatus))
+  }
 
   useEffect(() => {
     const linksStatus = localStorage.getItem('linksVisibility')
+    // console.log('получаем из localStorage:', linksStatus)
     if (linksStatus !== null) {
       dispatch(linksReducer(linksStatus === 'true'))
     }
   }, [dispatch])
-
-  const toggleLinksChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-    const linksVisibilityStatus = event.target.checked
-    dispatch(linksReducer(linksVisibilityStatus))
-    localStorage.setItem('linksVisibility', String(linksVisibilityStatus))
-  }
 
   return (
     <div>

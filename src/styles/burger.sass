@@ -1,5 +1,5 @@
-$white-color: #fff
-$yellow-color: #ff9b27
+// var(--white-color): #fff
+// var(--hover-color): #ff9b27
 
 .flex_container
   justify-content: center
@@ -10,7 +10,7 @@ $yellow-color: #ff9b27
 .burger_icon
   width: 20px
   height: 20px
-  color: $white-color
+  color: var(--white-color)
   cursor: pointer
 
 .btn
@@ -22,22 +22,22 @@ $yellow-color: #ff9b27
   margin: 0 0.6rem
   width: 100px
   padding: 0.6rem 0
-  box-shadow: 0 0 20px rgba($yellow-color, 0.2)
+  box-shadow: 0 0 20px rgba(var(--hover-color), 0.2)
   transition: 0.4s
 
 .reg
-  color: $white-color
-  background-color: rgba($yellow-color, 1)
+  color: var(--text-color)
+  background-color: rgba(var(--hover-color), 1)
 
 .log
-  color: $yellow-color
+  color: var(--hover-color)
   background-color: rgba(255, 255, 255, 1)
-  border: 1px solid rgba($yellow-color, 1)
+  border: 1px solid rgba(var(--hover-color), 1)
 
 .btn:hover
-  color: $white-color
-  box-shadow: 0 0 20px rgba($yellow-color, 0.6)
-  background-color: rgba($yellow-color, 1)
+  color: var(--text-color)
+  box-shadow: 0 0 20px rgba(var(--hover-color), 0.6)
+  background-color: rgba(var(--hover-color), 1)
 
 @media (min-width: 769px)
   .flex_container

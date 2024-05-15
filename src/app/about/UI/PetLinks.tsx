@@ -1,12 +1,21 @@
 'use client'
-import React from 'react'
+import React, { useEffect } from 'react'
 import Link from 'next/link'
-import { useAppSelector } from '@/redux/hooks/hooks'
+import { useAppSelector, useAppDispatch } from '@/redux/hooks/hooks'
+import { linksReducer } from '@/redux/slices/linksSlice'
 import styles from '@/app/about/about.module.sass'
 
 const PetLinks = () => {
+  const dispatch = useAppDispatch()
   const selectedLink = useAppSelector((state) => state.links.value)
-  console.log(selectedLink)
+
+  useEffect(() => {
+    const linksStatus = localStorage.getItem('linksVisibility')
+    if (linksStatus !== null) {
+      dispatch(linksReducer(linksStatus === 'true'))
+    }
+  }, [dispatch])
+
   return (
     <section className={styles.section}>
       {selectedLink ? (

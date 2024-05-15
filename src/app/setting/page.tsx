@@ -1,5 +1,5 @@
 import { Metadata } from 'next'
-import Toggle from './UI/Toggle'
+import ThemeToggle from './UI/ThemeToggle'
 import DaysChangeCount from './UI/DaysChangeCount'
 import GitHubLinksToggle from './UI/GitHubLinksToggle'
 import styles from './setting.module.sass'
@@ -13,7 +13,7 @@ export default function Settings() {
     <div className={styles.settings}>
       <h1 className={styles.title_h1}>Настройки</h1>
       <hr />
-      <Toggle />
+      <ThemeToggle />
       <hr />
       <DaysChangeCount />
       <hr />

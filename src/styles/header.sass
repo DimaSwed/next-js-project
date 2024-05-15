@@ -1,9 +1,9 @@
-$yellow-color: #ff9b27
-$background-color: #2C2C32
-$white-color: #fff
+// var(--hover-color): #ff9b27
+// var(--background-color): #2C2C32
+// var(--white-color): #fff
 
 header
-  background-color: $background-color
+  background-color: var(--background-color)
   height: 12vh
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1)
   padding: 2rem 0
@@ -24,12 +24,12 @@ header
       align-items: center
       gap: 1rem
       img
-        color: $yellow-color
+        color: var(--hover-color)
         border-radius: 15%
 
       span
         display: inline-block
-        color: $white-color
+        color: var(--text-color)
         font-size: 1.2rem
         font-weight: 500
         line-height: 28.5px
@@ -37,7 +37,7 @@ header
     .nav > a
       font-size: 1.2rem
       font-weight: 500
-      color: $white-color
+      color: var(--text-color)
       text-decoration: none
       padding: 0 1rem
       cursor: pointer
@@ -45,11 +45,11 @@ header
       line-height: 28.5px
 
     a:hover
-      color: $yellow-color
+      color: var(--hover-color)
       // text-decoration: underline
 
   .active
-    color: $yellow-color!important
+    color: var(--hover-color)!important
     cursor: default
 
 @media (min-width: 769px)

@@ -6,7 +6,7 @@ export interface LinkState {
 }
 
 const initialState: LinkState = {
-  value: false
+  value: true
 }
 
 export const linksSlice = createSlice({

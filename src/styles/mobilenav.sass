@@ -1,7 +1,3 @@
-$yellow-color: #ff9b27
-$background-color: #2C2C32
-$white-color: #fff
-
 .mobile_wrapper
   transform: translateX(0px)
   transition-property: all
@@ -14,7 +10,7 @@ $white-color: #fff
   height: 100vh
   right: 0px
   bottom: 0px
-  background-color: $background-color
+  background-color: var(--mobile-background-color)
 
 .transform_position_start
   transform: translateX(0px)
@@ -29,10 +25,10 @@ $white-color: #fff
   position: absolute
   top: 1rem
   right: 1rem
-  color: $white-color
+  color: var(--white-color)
   z-index: 202
 .close_icon:hover
-  color: $yellow-color
+  color: var(--hover-color)
 
 .list_items
   position: relative
@@ -46,7 +42,7 @@ $white-color: #fff
 
 .list_item
   font-size: 1.5rem
-  color: $white-color
+  color: var(--text-color)
   cursor: pointer
   transition-property: all
   transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1)
@@ -54,10 +50,10 @@ $white-color: #fff
   text-decoration: none
 
   .list_item:hover
-    color: $yellow-color
+    color: var(--hover-color)
 
 .link
-  color: $white-color
+  color: var(--text-color)
 
 .logo_mobile
   display: flex
