@@ -75,7 +75,7 @@ const YandexMap = () => {
         >
           <Placemark
             modules={['geoObject.addon.balloon']}
-            defaultGeometry={[cityCoordinates.lat, cityCoordinates.lon]}
+            geometry={[cityCoordinates.lat, cityCoordinates.lon]}
             properties={{
               balloonContentBody: `This is balloon loaded by the Yandex.Maps API module system in ${selectedCity}`
             }}
