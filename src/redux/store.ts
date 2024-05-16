@@ -1,6 +1,7 @@
 import { configureStore } from '@reduxjs/toolkit'
 import cityReducerSlice from './slices/citySlice'
 import { weatherApi } from '@/services/getWeatherData'
+import { yandexApi } from '@/services/getCity'
 import daysReducerSlice from './slices/chooseDaysNumberSlice'
 import linksReducerSlice from './slices/linksSlice'
 import themeReducerSlice from './slices/themeSlice'
@@ -12,9 +13,11 @@ export const makeStore = () => {
       days: daysReducerSlice,
       links: linksReducerSlice,
       theme: themeReducerSlice,
-      [weatherApi.reducerPath]: weatherApi.reducer
+      [weatherApi.reducerPath]: weatherApi.reducer,
+      [yandexApi.reducerPath]: yandexApi.reducer
     },
-    middleware: (getDefaultMiddleware) => getDefaultMiddleware().concat(weatherApi.middleware)
+    middleware: (getDefaultMiddleware) =>
+      getDefaultMiddleware().concat(weatherApi.middleware).concat(yandexApi.middleware)
   })
 }
 

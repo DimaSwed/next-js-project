@@ -3,10 +3,10 @@
 import React, { useEffect } from 'react'
 import styles from './main.module.sass'
 import CitySelector from '@/components/ui/CitySelector'
-
+import WeatherForecastSlider from '@/components/ui/WeatherForecastSlider'
+import YandexMap from '@/components/ui/YandexMap'
 import AOS from 'aos'
 import 'aos/dist/aos.css'
-import WeatherForecastSlider from '@/components/ui/WeatherForecastSlider'
 
 export default function HomePage() {
   useEffect(() => {
@@ -44,6 +44,8 @@ export default function HomePage() {
       <div className={styles.weather_items} data-aos="zoom-in" data-aos-delay="1000">
         <WeatherForecastSlider />
       </div>
+      <hr />
+      <YandexMap />
     </div>
   )
 }

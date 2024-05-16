@@ -135,3 +135,23 @@ export interface ILocation {
   localtime_epoch: number
   localtime: string
 }
+
+export interface GeoObjectPoint {
+  pos: string
+}
+
+export interface FeatureMember {
+  GeoObject: {
+    Point: GeoObjectPoint
+  }
+}
+
+export interface GeoObjectCollection {
+  featureMember: FeatureMember[]
+}
+
+export interface GeocodeResponse {
+  response: {
+    GeoObjectCollection: GeoObjectCollection
+  }
+}
