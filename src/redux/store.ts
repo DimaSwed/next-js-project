@@ -5,6 +5,8 @@ import { yandexApi } from '@/services/getCity'
 import daysReducerSlice from './slices/chooseDaysNumberSlice'
 import linksReducerSlice from './slices/linksSlice'
 import themeReducerSlice from './slices/themeSlice'
+import navigationReducer from './slices/navigationSlice'
+import sessionReducer from './slices/sessionSlice'
 
 export const makeStore = () => {
   return configureStore({
@@ -13,6 +15,8 @@ export const makeStore = () => {
       days: daysReducerSlice,
       links: linksReducerSlice,
       theme: themeReducerSlice,
+      navigation: navigationReducer,
+      session: sessionReducer,
       [weatherApi.reducerPath]: weatherApi.reducer,
       [yandexApi.reducerPath]: yandexApi.reducer
     },

@@ -8,7 +8,12 @@ const nextConfig = {
     includePaths: [path.join(__dirname, 'styles')]
   },
   images: {
-    domains: ['cdn.weatherapi.com']
+    domains: [
+      'cdn.weatherapi.com',
+      'lh3.googleusercontent.com',
+      'img.stablecog.com',
+      'b.stablecog.com'
+    ]
   }
 }
 

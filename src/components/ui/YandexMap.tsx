@@ -47,7 +47,6 @@ interface CityCoordinates {
 
 const YandexMap = () => {
   const selectedCity = useAppSelector((state) => state.city.value)
-  console.log(selectedCity)
   const { data, isError, isLoading } = useGetCityCoordinatesQuery(selectedCity)
   // useEffect(() => {
   //   if (data) {

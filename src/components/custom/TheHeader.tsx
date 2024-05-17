@@ -1,11 +1,14 @@
 'use client'
-import React, { useState } from 'react'
+import React from 'react'
+import { useAppDispatch, useAppSelector } from '@/redux/hooks/hooks'
+import { openNavReducer, closeNavReducer } from '@/redux/slices/navigationSlice'
 import { Navigation } from '../ui/Navigation'
 import Burger from '../ui/Burger'
 import MobileNav from '../ui/MobileNav'
 import Logo from './Logo'
 
 import '@/styles/header.sass'
+import SignInButtons from '../ui/SignInButtons'
 
 const navItems = [
   { label: 'Прогноз погоды', href: '/' },
@@ -14,15 +17,18 @@ const navItems = [
 ]
 
 const TheHeader = () => {
-  const [showNav, setShowNav] = useState(false)
-  const showNavHandler = () => setShowNav(true)
-  const closeNavHandler = () => setShowNav(false)
+  const dispatch = useAppDispatch()
+  const showNav = useAppSelector((state) => state.navigation.showNav)
+
+  const showNavHandler = () => dispatch(openNavReducer())
+  const closeNavHandler = () => dispatch(closeNavReducer())
 
   return (
     <header>
       <div className="header">
         <Logo />
         <Navigation navLinks={navItems} />
+        <SignInButtons />
         <Burger openNav={showNavHandler} />
         <MobileNav nav={showNav} closeNav={closeNavHandler} />
       </div>

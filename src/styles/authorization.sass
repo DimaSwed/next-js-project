@@ -1,0 +1,51 @@
+.auth_links
+  font-family: 'Lato', sans-serif
+  font-size: 1rem
+  display: flex
+  gap: 10px
+
+.auth_link
+  font-weight: 600
+  color: var(--text-color)
+  cursor: pointer
+  transition-property: all
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1)
+  transition-duration: 200ms
+  text-decoration: none
+
+.auth_link > button
+  cursor: pointer
+  border: 0
+  border-radius: 4px
+  font-weight: 600
+  margin: 0 10px
+  width: 100px
+  padding: 10px 0
+  // box-shadow: 0 0 5px var(--hover-color)
+  border: 1px solid var(--text-color)
+  transition: 0.4s
+
+// .auth_link > button:hover
+//   color: var(--white-color)
+//   box-shadow: 0 0 20px var(--hover-color)
+//   background-color: var(--hover-color)
+
+// .auth_link:hover
+//   color: var(--hover-color)
+
+.login,
+.logout
+  color: var(--text-color)
+  background-color: var(--background-color)
+  border: 1px solid var(--hover-color)
+
+.login:hover,
+.logout:hover,
+.googlebtn:hover
+  color: var(--white-color)
+  box-shadow: 0 0 20px var(--hover-color)
+  background-color: var(--hover-color)
+
+.profile
+  color: var(--text-color)
+  background-color: var(--background-color-button)
