@@ -2,6 +2,7 @@
 
 .weather_wrapper
   margin-top: 1.25rem
+  margin-bottom: 1.25rem
   display: flex
   flex-direction: row
   flex-wrap: wrap
@@ -37,19 +38,22 @@
   width: 250px
   height: 250px
   // background-color: var(--white-color)
-  border: 1px solid var(--text-color)
-  box-shadow: 0px 0px 25px 1px rgba(50, 50, 50, 0.1)
+  // border: 1px solid var(--text-color)
+  // box-shadow: 0px 0px 25px 1px rgba(50, 50, 50, 0.1)
+  backdrop-filter: blur(10px)
+  box-shadow: rgba(136, 165, 191, 0.48) 6px 2px 16px 0px, rgba(255, 255, 255, 0.8) -6px -2px 16px 0px
+  // box-shadow: rgb(38, 57, 77) 0px 20px 30px -10px
   animation: appear 500ms ease-out forwards
 
   h1
     position: absolute
     font-family: 'Lato', sans-serif
-    font-weight: 300
+    font-weight: 500
     font-size: 1.87rem
     color: var(--text-color)
     // color: #B8B8B8
     bottom: 2.5rem
-    left: 2.18rem
+    left: 20px
     opacity: 0
     transform: translateX(150px)
     animation: title-appear 500ms ease-out 500ms forwards
@@ -60,12 +64,12 @@
     flex-direction: column
     gap: 2px
     font-family: 'Lato', sans-serif
-    font-weight: 300
+    font-weight: 500
     font-size: 1.25rem
     color: var(--text-color)
     // color: var(--greylight-color)
     top: 20px
-    left: 30px
+    left: 20px
     opacity: 0
     transform: translateX(150px)
     animation: title-appear 500ms ease-out 500ms forwards
@@ -78,7 +82,7 @@
     color: var(--text-color)
     // color: lighten(var(--greylight-color), 10%)
     bottom: 5px
-    left: 35px
+    left: 20px
     animation: title-appear 1s ease-out 500ms forwards
 
 .weather_icon

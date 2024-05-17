@@ -1,23 +1,23 @@
 footer
-  background-color: var(--background-color)
+  backdrop-filter: blur(5px)
+  // background-color: var(--background-color)
   // height: 12vh
   // height: 80px
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1)
-  border: 1px solid white
-  height: 100px
+  max-height: 100px
 
   .footer
     font-family: 'Lato', sans-serif
-    width: 85%
-    flex: 1
+    max-width: 1440px
+    // flex: 1
     display: flex
     align-items: center
     justify-content: center
     gap: 2.5rem
     margin: 0 auto
     // height: 12vh
-    height: 100px
-    padding: 0
+    max-height: 100px
+    padding: 1.8rem
 
   .link
     color: var(--footer-icon-color)
@@ -30,7 +30,7 @@ footer
 
 @media (max-width: 320px)
 footer
-  height: 15vh
+  // height: 15vh
   .footer
     gap: 2rem
-    height: 15vh
+    // height: 15vh

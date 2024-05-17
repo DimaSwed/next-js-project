@@ -68,8 +68,8 @@ const YandexMap = () => {
             zoom: 9,
             controls: ['zoomControl', 'fullscreenControl']
           }}
-          width={'100%'}
-          height={400}
+          width={500}
+          // height={400}
           modules={['control.ZoomControl', 'control.FullscreenControl']}
         >
           <Placemark

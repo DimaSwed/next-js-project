@@ -10,8 +10,6 @@ type TypeProps = {
 const Burger = ({ openNav }: TypeProps) => {
   return (
     <div className="flex_container">
-      <button className="log btn">Login</button>
-      <button className="reg btn">Sign up</button>
       <FaBars onClick={openNav} className="burger_icon" />
     </div>
   )

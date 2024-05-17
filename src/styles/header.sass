@@ -1,20 +1,29 @@
 header
-  background-color: var(--background-color)
+  position: fixed
+  top: 0
+  left: 0
+  width: 100%
+  color: white
+  // padding: 2rem 0
+  text-align: center
+  z-index: 1000
+  // background-color: var(--background-color)
+  backdrop-filter: blur(5px)
   height: 100px
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1)
-  padding: 2rem 0
 
   .header
     font-family: 'Lato', sans-serif
-    width: 85%
-    flex: 1
+    max-width: 1440px
+    // border: 1px solid white
+    // flex: 1
     display: flex
     align-items: center
     justify-content: space-between
     margin: 0 auto
     // height: 12vh
     height: 100px
-    padding: 0
+    padding: 1.8rem
 
     .header__logo
       display: flex
@@ -62,3 +71,8 @@ header
     height: 18vh
     .header
       height: 18vh
+      padding: 1rem
+      .header__logo
+        gap: 0.5rem
+        span
+          font-size: 1rem

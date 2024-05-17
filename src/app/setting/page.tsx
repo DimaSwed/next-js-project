@@ -12,11 +12,11 @@ export default function Settings() {
   return (
     <div className={styles.settings}>
       <h1 className={styles.title_h1}>Настройки</h1>
-      <hr />
+      <hr className={styles.hr} />
       <ThemeToggle />
-      <hr />
+      <hr className={styles.hr} />
       <DaysChangeCount />
-      <hr />
+      <hr className={styles.hr} />
       <GitHubLinksToggle />
     </div>
   )

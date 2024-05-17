@@ -2,7 +2,10 @@
   font-family: 'Lato', sans-serif
   font-size: 1rem
   display: flex
-  gap: 10px
+  justify-content: center
+  align-items: center
+  gap: 15px
+  padding: 0
 
 .auth_link
   font-weight: 600
@@ -18,7 +21,7 @@
   border: 0
   border-radius: 4px
   font-weight: 600
-  margin: 0 10px
+  // margin: 0 10px
   width: 100px
   padding: 10px 0
   // box-shadow: 0 0 5px var(--hover-color)
@@ -49,3 +52,20 @@
 .profile
   color: var(--text-color)
   background-color: var(--background-color-button)
+
+@media (max-width: 768px)
+  .auth_links
+    flex-direction: column
+    gap: 10px
+
+  .auth_link > button
+    margin: 0 10px
+    width: 70px
+    padding: 5px 0
+
+@media (max-width: 376px)
+
+  .auth_link > button
+    margin: 0 10px
+    // width: 50px
+    // padding: 10px 0
