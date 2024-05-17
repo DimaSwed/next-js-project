@@ -31,3 +31,5 @@ jobs:
         GOOGLE_CLIENT_ID: ${{ secrets.GOOGLE_CLIENT_ID }}
         GOOGLE_CLIENT_SECRET: ${{ secrets.GOOGLE_CLIENT_SECRET }}
         NEXTAUTH_URL: ${{ secrets.NEXTAUTH_URL }}
+        NEXT_PUBLIC_API_KEY: ${{ secrets.NEXT_PUBLIC_API_KEY }}
+        NEXT_PUBLIC_YANDEX_API_KEY: ${{ secrets.NEXT_PUBLIC_YANDEX_API_KEY }}
