@@ -27,7 +27,7 @@ const GitHubLinksToggle = () => {
   }, [dispatch])
 
   return (
-    <div>
+    <div className={styles.settings_wrap}>
       <h2 className={styles.title_h2}>
         Отображать ссылки на GitHub в разделе{' '}
         <Link className={styles.link} href="/about">

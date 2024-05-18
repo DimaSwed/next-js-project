@@ -13,7 +13,7 @@ const font_lato = Lato({
 
 export const metadata: Metadata = {
   title: 'Weather | Template',
-  description: 'Weather Template using next js 14'
+  description: 'Weather Template using NexJS 14'
 }
 
 export default function RootLayout({

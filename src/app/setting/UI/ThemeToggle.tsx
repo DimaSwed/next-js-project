@@ -28,7 +28,7 @@ const ThemeToggle = () => {
   }
 
   return (
-    <div>
+    <div className={styles.settings_wrap}>
       <h2 className={styles.title_h2}>Тема приложения</h2>
       <div className={styles.toggle_wrapper}>
         <div className={styles.paragraph}>
