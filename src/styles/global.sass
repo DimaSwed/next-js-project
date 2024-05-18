@@ -29,8 +29,6 @@ body
   background-position: center
   background-attachment: fixed
   overscroll-behavior: none
-  touch-action: none
-  overflow-x: hidden
 
 @media (prefers-color-scheme: light)
   :root
@@ -45,8 +43,6 @@ body
   body
     background-image: var(--background-light-image)
     background-attachment: fixed
-    overscroll-behavior: none
-    touch-action: none
 
 [data-theme="dark"] 
   --text-color: #fff
@@ -75,7 +71,7 @@ body
   padding-top: 1.5rem
   padding-bottom: 1.5rem
   // border: 1px solid white
-  background-attachment: fixed
+  overflow: hidden
   overscroll-behavior: none
 
 #loading_indicator
