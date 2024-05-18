@@ -103,8 +103,8 @@ const DaysChangeCount = () => {
           menu: (provided) => ({
             ...provided,
             backgroundColor: '#282c34',
-            color: 'white'
-            // marginTop: '-80px'
+            color: 'white',
+            marginTop: '-100px'
           }),
           option: (provided, state) => ({
             ...provided,

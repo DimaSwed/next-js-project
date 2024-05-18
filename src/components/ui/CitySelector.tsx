@@ -75,7 +75,7 @@ const CitySelector = () => {
         styles={{
           control: (provided) => ({
             ...provided,
-            width: '160px',
+            width: '200px',
             height: '50px',
             backgroundColor: 'var(--background-color)',
             border: '1px solid var(--text-color)',
