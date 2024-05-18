@@ -35,14 +35,24 @@ const GitHubLinksToggle = () => {
         </Link>{' '}
         :
       </h2>
-      <label>
+      {/* <label>
         <input
           className={styles.input_checkbox}
           type="checkbox"
           checked={linksVisibility}
           onChange={toggleLinksChange}
         />
-      </label>
+      </label> */}
+      <div className={styles.checkbox_wrapper_19}>
+        <input
+          type="checkbox"
+          className={styles.input}
+          checked={linksVisibility}
+          onChange={toggleLinksChange}
+          id="cbtest-19"
+        />
+        <label htmlFor="cbtest-19" className={styles.label} />
+      </div>
     </div>
   )
 }
