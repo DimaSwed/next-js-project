@@ -14,6 +14,10 @@ const nextConfig = {
       'img.stablecog.com',
       'b.stablecog.com'
     ]
+  },
+  env: {
+    NEXT_PUBLIC_YANDEX_API_KEY: process.env.NEXT_PUBLIC_YANDEX_API_KEY,
+    NEXT_PUBLIC_API_KEY: process.env.NEXT_PUBLIC_API_KEY
   }
 }
 

@@ -21,7 +21,7 @@
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react'
 import { GeocodeResponse } from '@/types/types'
 
-const API_KEY = process.env.NEXT_PUBLIC_YANDEX_API_KEY
+const API_KEY: string = process.env.NEXT_PUBLIC_YANDEX_API_KEY || ''
 
 if (!API_KEY) {
   throw new Error('NEXT_PUBLIC_YANDEX_API_KEY is not defined')

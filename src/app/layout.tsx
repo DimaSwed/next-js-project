@@ -6,7 +6,7 @@ import WeatherProvider from './WeatherProvider'
 import '../styles/global.sass'
 
 const font_lato = Lato({
-  weight: ['300', '400', '700', '900'],
+  weight: ['300', '400', '700'],
   subsets: ['latin'],
   style: 'normal'
 })

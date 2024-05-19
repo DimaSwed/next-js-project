@@ -65,22 +65,17 @@ const YandexMap = () => {
     <div className={styles.yandex_map}>
       <YMaps query={{ lang: 'ru_RU' }}>
         <Map
-          // className={styles.map_container}
           state={{
             center: [cityCoordinates.lat, cityCoordinates.lon],
             zoom: 9,
             controls: ['zoomControl', 'fullscreenControl']
           }}
           width={500}
-          // height={400}
           modules={['control.ZoomControl', 'control.FullscreenControl']}
         >
           <Placemark
             modules={['geoObject.addon.balloon']}
             geometry={[cityCoordinates.lat, cityCoordinates.lon]}
-            properties={{
-              balloonContentBody: `This is balloon loaded by the Yandex.Maps API module system in ${selectedCity}`
-            }}
           />
         </Map>
       </YMaps>
