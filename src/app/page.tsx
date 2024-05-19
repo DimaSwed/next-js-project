@@ -35,7 +35,7 @@ export default function HomePage() {
           Еженедельный прогноз погоды
         </h1>
         <CitySelector />
-        <p className={styles.text} data-aos="fade-right" data-aos-delay="700">
+        <p className={styles.text} data-aos="fade-right" data-aos-delay="600">
           Раздел отображает последнюю информацию о погоде для города, который вы выбрали. <br />{' '}
           Оставайтесь в курсе погодных условий в выбранном городе благодаря этому разделу.
         </p>

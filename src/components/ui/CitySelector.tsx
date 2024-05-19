@@ -61,7 +61,7 @@ const CitySelector = () => {
     //     <option value="Rostov-on-Don">Ростов-на-Дону</option>
     //   </select>
     // </div>
-    <div data-aos="zoom-out" data-aos-delay="1000" className={styles.city}>
+    <div data-aos="zoom-out" data-aos-delay="400" className={styles.city}>
       <label className={styles.label} htmlFor="city-select">
         Выберите город:{' '}
       </label>
