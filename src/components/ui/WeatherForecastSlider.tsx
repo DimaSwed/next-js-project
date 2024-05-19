@@ -6,6 +6,7 @@ import { useGetWeatherByCityQuery } from '@/services/getWeatherData'
 import { useAppSelector } from '@/redux/hooks/hooks'
 import { IForecastday } from '@/types/types'
 import WeatherForecast from './WeatherForecast'
+import WeatherForecastSkeleton from './WeatherForecastSkeleton'
 import styles from '@/app/main.module.sass'
 
 export default function WeatherForecastSlider() {
@@ -45,7 +46,9 @@ export default function WeatherForecastSlider() {
     isError
   } = useGetWeatherByCityQuery({ city: selectedCity, days: selectedDays })
 
-  if (isLoading) return <div className={styles.service}>Загрузка...</div>
+  // if (isLoading) return <div className={styles.service}>Загрузка...</div>
+  if (isLoading)
+    return Array.from({ length: 1 }).map((_, index) => <WeatherForecastSkeleton key={index} />)
   if (isError) return <div className={styles.service}>{isError}</div>
 
   return (
@@ -76,6 +79,22 @@ export default function WeatherForecastSlider() {
             icon={forecast?.day?.condition?.icon}
           />
         ))}
+      {/* {isLoading
+        ? Array.from({ length: 4 }).map((_, index) => <WeatherForecastSkeleton key={index} />)
+        : data &&
+          'forecast' in data &&
+          data.forecast.forecastday.map((forecast: IForecastday) => (
+            <WeatherForecast
+              key={forecast?.date_epoch}
+              dataday={forecast?.date}
+              temperature={forecast?.day?.maxtemp_c}
+              pressure={forecast?.hour[0]?.pressure_mb}
+              speed={forecast?.day.maxwind_kph}
+              clouds={forecast?.day.condition?.text}
+              name={data?.location?.name}
+              icon={forecast?.day?.condition?.icon}
+            />
+          ))} */}
     </Carousel>
   )
 }

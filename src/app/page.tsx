@@ -41,7 +41,7 @@ export default function HomePage() {
         </p>
       </div>
       <hr />
-      <div className={styles.weather_items} data-aos="zoom-in" data-aos-delay="1000">
+      <div className={styles.weather_items}>
         <WeatherForecastSlider />
       </div>
       <hr />

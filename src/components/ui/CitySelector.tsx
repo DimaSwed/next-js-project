@@ -114,7 +114,7 @@ const CitySelector = () => {
           }),
           placeholder: (provided) => ({
             ...provided,
-            color: '#61dafb'
+            color: 'var(--text-color)'
           })
         }}
       />

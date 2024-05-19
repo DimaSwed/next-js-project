@@ -1,0 +1,88 @@
+.weather_wrapper
+  margin-top: 1.25rem
+  margin-bottom: 1.25rem
+  display: flex
+  flex-direction: row
+  flex-wrap: wrap
+  justify-content: center
+
+.custom_carousel_item
+  display: flex
+  justify-content: space-between
+  gap: 30px
+
+.weather_card
+  padding: 1.25rem
+  margin: 1.25rem 0.4rem
+  border-radius: 20px
+  position: relative
+  overflow: hidden
+  width: 250px
+  height: 250px
+
+// .skeleton
+//   background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%)
+//   background-size: 200% 100%
+//   animation: loading 1.5s infinite
+
+.skeleton
+  background: linear-gradient(90deg, rgba(240, 240, 240, 0.3) 25%, rgba(224, 224, 224, 0.3) 50%, rgba(240, 240, 240, 0.3) 75%)
+  background-size: 200% 100%
+  animation: loading 1.5s infinite
+
+@keyframes loading
+  0%
+    background-position: 200% 0
+  100%
+    background-position: -200% 0
+
+.skeleton_element
+  background-color: #e0e0e0
+  opacity: 0.3
+  border-radius: 5px
+
+.weather_icon
+  position: relative
+  top: -20px
+  left: 20px
+  float: right
+  margin: 40px 40px 0 0
+  width: 60px
+  height: 60px
+  background-color: #e0e0e0
+
+.weather_parametrs
+  position: absolute
+  display: flex
+  flex-direction: column
+  width: 100px
+  gap: 2px
+  top: 20px
+  left: 20px
+
+.title_h1
+  position: absolute
+  bottom: 2.5rem
+  left: 20px
+  background-color: #e0e0e0
+  width: 60%
+  height: 1.87rem
+
+.title_h2
+  background-color: #e0e0e0
+  width: 80%
+  height: 1.25rem
+
+.paragraph
+  position: absolute
+  bottom: 5px
+  left: 20px
+  background-color: #e0e0e0
+  width: 50%
+  height: 1.6rem
+
+@keyframes loading
+  0%
+    background-position: 200% 0
+  100%
+    background-position: -200% 0
