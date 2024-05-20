@@ -1,7 +1,7 @@
 import React from 'react'
 import styles from '@/app/about/about.module.sass'
 
-const AboutMeContent = () => {
+const AboutMeContent: React.FC = () => {
   return (
     <section className={styles.section}>
       <h2 className={styles.title_h2}>Обо мне</h2>

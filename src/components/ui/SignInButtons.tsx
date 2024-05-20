@@ -3,7 +3,7 @@ import { useSession, signOut } from 'next-auth/react'
 import Link from 'next/link'
 import '@/styles/authorization.sass'
 
-const SignInButtons = () => {
+const SignInButtons: React.FC = () => {
   const session = useSession()
 
   return (

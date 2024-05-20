@@ -4,7 +4,7 @@ import { FaGithub } from 'react-icons/fa'
 import { AiOutlineEnvironment, AiOutlineMail, AiOutlinePhone } from 'react-icons/ai'
 import styles from '@/app/about/about.module.sass'
 
-const PersonalInfo = () => {
+const PersonalInfo: React.FC = () => {
   return (
     <div className={styles.head}>
       <h1 className={styles.title_h1}>Буланкин&nbsp;Дмитрий</h1>

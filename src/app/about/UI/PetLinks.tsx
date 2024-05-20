@@ -5,7 +5,13 @@ import { useAppSelector, useAppDispatch } from '@/redux/hooks/hooks'
 import { linksReducer } from '@/redux/slices/linksSlice'
 import styles from '@/app/about/about.module.sass'
 
-const PetLinks = () => {
+interface LinkItem {
+  text: string
+  githubLink: string
+  deployLink: string
+}
+
+const PetLinks: React.FC = () => {
   const dispatch = useAppDispatch()
   const selectedLink = useAppSelector((state) => state.links.value)
 
@@ -16,6 +22,24 @@ const PetLinks = () => {
     }
   }, [dispatch])
 
+  const petProjects: LinkItem[] = [
+    {
+      text: 'Трехстраничный веб-сайт, разработанный с использованием фреймворка React',
+      githubLink: 'https://github.com/DimaSwed/CoffeeShop',
+      deployLink: 'https://coffee-shop-delta-sepia.vercel.app/'
+    },
+    {
+      text: 'Адаптивный сайт с использованием HTML, CSS (Sass), и JavaScript',
+      githubLink: 'https://github.com/DimaSwed/NightExpress-LP',
+      deployLink: 'https://dimaswed.github.io/NightExpress-LP/'
+    },
+    {
+      text: 'Простой сайт CSS Generator - на HTML, CSS и JavaScript',
+      githubLink: 'https://dimaswed.github.io/textCssGenerator/',
+      deployLink: 'https://dimaswed.github.io/textCssGenerator/'
+    }
+  ]
+
   return (
     <section className={styles.section}>
       {selectedLink ? (
@@ -24,69 +48,19 @@ const PetLinks = () => {
 
           <div className={styles.cards}>
             <ul className={styles.link_list}>
-              <li className={styles.link_item}>
-                <p className={styles.link_item_p}>
-                  Трехстраничный веб-сайт, разработанный с использованием фреймворка React
-                </p>
-                <div className={styles.link_item_box}>
-                  <Link
-                    className={styles.link}
-                    target="_blank"
-                    href="https://github.com/DimaSwed/CoffeeShop"
-                  >
-                    Ссылка на GitHub
-                  </Link>
-                  <Link
-                    className={styles.link}
-                    target="_blank"
-                    href="https://coffee-shop-delta-sepia.vercel.app/"
-                  >
-                    Ссылка на Deploy
-                  </Link>
-                </div>
-              </li>
-              <li className={styles.link_item}>
-                <p className={styles.link_item_p}>
-                  Адаптивный сайт с использованием HTML, CSS (Sass), и JavaScript
-                </p>
-                <div className={styles.link_item_box}>
-                  <Link
-                    className={styles.link}
-                    target="_blank"
-                    href="https://github.com/DimaSwed/NightExpress-LP"
-                  >
-                    Ссылка на GitHub
-                  </Link>
-                  <Link
-                    className={styles.link}
-                    target="_blank"
-                    href="https://dimaswed.github.io/NightExpress-LP/"
-                  >
-                    Ссылка на Deploy
-                  </Link>
-                </div>
-              </li>
-              <li className={styles.link_item}>
-                <p className={styles.link_item_p}>
-                  Простой сайт CSS Generator - на HTML, CSS и JavaScript
-                </p>
-                <div className={styles.link_item_box}>
-                  <Link
-                    className={styles.link}
-                    target="_blank"
-                    href="https://dimaswed.github.io/textCssGenerator/"
-                  >
-                    Ссылка на GitHub
-                  </Link>
-                  <Link
-                    className={styles.link}
-                    target="_blank"
-                    href="https://dimaswed.github.io/textCssGenerator/"
-                  >
-                    Ссылка на Deploy
-                  </Link>
-                </div>
-              </li>
+              {petProjects.map((project, index) => (
+                <li key={index} className={styles.link_item}>
+                  <p className={styles.link_item_p}>{project.text}</p>
+                  <div className={styles.link_item_box}>
+                    <Link className={styles.link} target="_blank" href={project.githubLink}>
+                      Ссылка на GitHub
+                    </Link>
+                    <Link className={styles.link} target="_blank" href={project.deployLink}>
+                      Ссылка на Deploy
+                    </Link>
+                  </div>
+                </li>
+              ))}
             </ul>
           </div>
         </>

@@ -34,7 +34,7 @@ import Image from 'next/image'
 import styles from '@/app/profile/profile.module.sass'
 import { setSession } from '@/redux/slices/sessionSlice'
 
-const ProfileCard = () => {
+const ProfileCard: React.FC = () => {
   const dispatch = useAppDispatch()
   const session = useAppSelector((state: any) => state.session)
 

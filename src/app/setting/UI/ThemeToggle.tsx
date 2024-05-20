@@ -4,12 +4,13 @@ import React, { useEffect } from 'react'
 import { useAppSelector, useAppDispatch } from '@/redux/hooks/hooks'
 import { themeReducer } from '@/redux/slices/themeSlice'
 import { FaSun, FaMoon } from 'react-icons/fa'
-
 import styles from '@/app/setting/setting.module.sass'
 
-const ThemeToggle = () => {
+interface ThemeToggleProps {}
+
+const ThemeToggle: React.FC<ThemeToggleProps> = () => {
   const dispatch = useAppDispatch()
-  const currentTheme = useAppSelector((state) => state.theme.currentTheme)
+  const currentTheme = useAppSelector((state) => state.theme.currentTheme) as string
 
   useEffect(() => {
     const themeStatus = localStorage.getItem('theme') || 'dark'
@@ -19,11 +20,8 @@ const ThemeToggle = () => {
 
   const themeReducerChange = () => {
     const newTheme = currentTheme === 'dark' ? 'light' : 'dark'
-    // console.log('присваиваю переменной при нажатии на кнопку', newTheme)
     dispatch(themeReducer(newTheme))
-    // console.log('отправляю в store при нажатии на кнопку', newTheme)
     localStorage.setItem('theme', newTheme)
-    // console.log('отправляю в ls при нажатии на кнопку', newTheme)
     document.documentElement.setAttribute('data-theme', newTheme)
   }
 

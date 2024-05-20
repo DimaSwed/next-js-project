@@ -6,13 +6,15 @@ import { useAppDispatch, useAppSelector } from '@/redux/hooks/hooks'
 import { linksReducer } from '@/redux/slices/linksSlice'
 import styles from '@/app/setting/setting.module.sass'
 
-const GitHubLinksToggle = () => {
+interface GitHubLinksToggleProps {}
+
+const GitHubLinksToggle: React.FC<GitHubLinksToggleProps> = () => {
   const dispatch = useAppDispatch()
   const linksVisibility = useAppSelector((state) => state.links.value)
   // console.log('получаем из store:', linksVisibility)
 
   const toggleLinksChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-    const linksVisibilityStatus = event.target.checked
+    const linksVisibilityStatus: boolean = event.target.checked
     // console.log('получаем при нажатии toggle:', linksVisibilityStatus)
     dispatch(linksReducer(linksVisibilityStatus))
     localStorage.setItem('linksVisibility', String(linksVisibilityStatus))
@@ -43,15 +45,15 @@ const GitHubLinksToggle = () => {
           onChange={toggleLinksChange}
         />
       </label> */}
-      <div className={styles.checkbox_wrapper_19}>
+      <div className={styles.checkbox_wrapper}>
         <input
           type="checkbox"
           className={styles.input}
           checked={linksVisibility}
           onChange={toggleLinksChange}
-          id="cbtest-19"
+          id="checkbox"
         />
-        <label htmlFor="cbtest-19" className={styles.label} />
+        <label htmlFor="checkbox" className={styles.label} />
       </div>
     </div>
   )

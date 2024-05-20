@@ -16,7 +16,7 @@ const cityOptions: CityOption[] = [
   { value: 'Rostov-on-Don', label: 'Ростов-на-Дону' }
 ]
 
-const CitySelector = () => {
+const CitySelector: React.FC = () => {
   const dispatch = useAppDispatch()
   const selectedCityStore = useAppSelector((state) => state.city.value)
   const selectId = useId()

@@ -46,7 +46,7 @@ interface CityCoordinates {
   lon: number
 }
 
-const YandexMap = () => {
+const YandexMap: React.FC = () => {
   const selectedCity = useAppSelector((state) => state.city.value)
   const { data, isError, isLoading } = useGetCityCoordinatesQuery(selectedCity)
   // useEffect(() => {

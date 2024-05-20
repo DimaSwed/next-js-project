@@ -1,7 +1,7 @@
 import React from 'react'
 import styles from '@/app/about/about.module.sass'
 
-const EducationInfo = () => {
+const EducationInfo: React.FC = () => {
   return (
     <section className={styles.section}>
       <h2 className={styles.title_h2}>Образование</h2>
