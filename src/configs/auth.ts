@@ -32,7 +32,7 @@
 import type { AuthOptions } from 'next-auth'
 import GoogleProvider from 'next-auth/providers/google'
 import YandexProvider from 'next-auth/providers/yandex'
-import MailRuProvider from 'next-auth/providers/mailru'
+// import MailRuProvider from 'next-auth/providers/mailru'
 import VKProvider from 'next-auth/providers/vk'
 
 export const authConfig: AuthOptions = {
@@ -45,10 +45,10 @@ export const authConfig: AuthOptions = {
       clientId: process.env.YANDEX_CLIENT_ID as string,
       clientSecret: process.env.YANDEX_SECRET as string
     }),
-    MailRuProvider({
-      clientId: process.env.MAILRU_CLIENT_ID as string,
-      clientSecret: process.env.MAILRU_SECRET as string
-    }),
+    // MailRuProvider({
+    //   clientId: process.env.MAILRU_CLIENT_ID as string,
+    //   clientSecret: process.env.MAILRU_SECRET as string
+    // }),
     VKProvider({
       clientId: process.env.VK_CLIENT_ID as string,
       clientSecret: process.env.VK_CLIENT_SECRET as string

@@ -2,7 +2,7 @@
 
 import { signIn } from 'next-auth/react'
 import { useSearchParams } from 'next/navigation'
-import { FaGoogle, FaYandex, FaEnvelope, FaVk } from 'react-icons/fa'
+import { FaGoogle, FaYandex, FaVk } from 'react-icons/fa'
 import styles from '@/app/signin/signin.module.sass'
 
 const GoogleButton: React.FC = () => {
@@ -25,11 +25,11 @@ const GoogleButton: React.FC = () => {
           <FaYandex className={styles.fa_icon} /> Yandex
         </button>
       </div>
-      <div className={styles.social}>
+      {/* <div className={styles.social}>
         <button className={styles.googlebtn} onClick={() => handleSignIn('mailru')}>
           <FaEnvelope className={styles.fa_icon} /> MailRu
         </button>
-      </div>
+      </div> */}
       <div className={styles.social}>
         <button className={styles.googlebtn} onClick={() => handleSignIn('vk')}>
           <FaVk className={styles.fa_icon} /> VK
