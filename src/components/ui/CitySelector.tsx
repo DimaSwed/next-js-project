@@ -1,5 +1,5 @@
 'use client'
-import React, { useEffect } from 'react'
+import React, { useEffect, useId, useState } from 'react'
 import Select from 'react-select'
 import styles from '@/app/main.module.sass'
 import { useAppDispatch, useAppSelector } from '@/redux/hooks/hooks'
@@ -19,6 +19,10 @@ const cityOptions: CityOption[] = [
 const CitySelector = () => {
   const dispatch = useAppDispatch()
   const selectedCityStore = useAppSelector((state) => state.city.value)
+  const selectId = useId()
+  const [isMounted, setIsMounted] = useState(false)
+
+  useEffect(() => setIsMounted(true), [])
 
   useEffect(() => {
     const storedCity = localStorage.getItem('selectedCity')
@@ -61,64 +65,66 @@ const CitySelector = () => {
     //     <option value="Rostov-on-Don">Ростов-на-Дону</option>
     //   </select>
     // </div>
-    <div data-aos="zoom-out" data-aos-delay="400" className={styles.city}>
-      <label className={styles.label} htmlFor="city-select">
-        Выберите город:{' '}
-      </label>
-      <Select
-        id="city-select"
-        value={getSelectedCityOption()}
-        onChange={handleCityChange}
-        options={cityOptions}
-        placeholder="Выберите город"
-        menuPlacement="auto"
-        styles={{
-          control: (provided) => ({
-            ...provided,
-            width: '200px',
-            height: '50px',
-            backgroundColor: 'var(--background-color)',
-            border: '1px solid var(--text-color)',
-            boxShadow: 'none',
-            '&:hover': {
-              color: 'var(--white-color)',
-              boxShadow: '0 0 5px var(--hover-color)',
-              backgroundColor: '#ff9b27'
-            },
-            borderRadius: '5px',
-            padding: '5px',
-            color: 'var(--text-color)'
-          }),
-          menu: (provided) => ({
-            ...provided,
-            backgroundColor: '#282c34',
-            color: 'white',
-            marginTop: '-80px'
-          }),
-          option: (provided, state) => ({
-            ...provided,
-            backgroundColor: state.isSelected
-              ? '#ff9b27'
-              : state.isFocused
-                ? 'var(--hover-color-two)'
-                : '#282c34',
-            color: state.isSelected ? 'black' : 'white',
-            '&:hover': {
-              backgroundColor: 'var(--hover-color-two)',
-              color: 'black'
-            }
-          }),
-          singleValue: (provided) => ({
-            ...provided,
-            color: 'var(--text-color)'
-          }),
-          placeholder: (provided) => ({
-            ...provided,
-            color: 'var(--text-color)'
-          })
-        }}
-      />
-    </div>
+    isMounted ? (
+      <div data-aos="zoom-out" data-aos-delay="400" className={styles.city}>
+        <label className={styles.label} htmlFor={selectId}>
+          Выберите город:{' '}
+        </label>
+        <Select
+          inputId={selectId}
+          value={getSelectedCityOption()}
+          onChange={handleCityChange}
+          options={cityOptions}
+          placeholder="Выберите город"
+          menuPlacement="auto"
+          styles={{
+            control: (provided) => ({
+              ...provided,
+              width: '200px',
+              height: '50px',
+              backgroundColor: 'var(--background-color)',
+              border: '1px solid var(--text-color)',
+              boxShadow: 'none',
+              '&:hover': {
+                color: 'var(--white-color)',
+                boxShadow: '0 0 5px var(--hover-color)',
+                backgroundColor: '#ff9b27'
+              },
+              borderRadius: '5px',
+              padding: '5px',
+              color: 'var(--text-color)'
+            }),
+            menu: (provided) => ({
+              ...provided,
+              backgroundColor: '#282c34',
+              color: 'white',
+              marginTop: '-80px'
+            }),
+            option: (provided, state) => ({
+              ...provided,
+              backgroundColor: state.isSelected
+                ? '#ff9b27'
+                : state.isFocused
+                  ? 'var(--hover-color-two)'
+                  : '#282c34',
+              color: state.isSelected ? 'black' : 'white',
+              '&:hover': {
+                backgroundColor: 'var(--hover-color-two)',
+                color: 'black'
+              }
+            }),
+            singleValue: (provided) => ({
+              ...provided,
+              color: 'var(--text-color)'
+            }),
+            placeholder: (provided) => ({
+              ...provided,
+              color: 'var(--text-color)'
+            })
+          }}
+        />
+      </div>
+    ) : null
   )
 }
 

@@ -29,10 +29,10 @@ if (!API_KEY) {
 
 export const yandexApi = createApi({
   reducerPath: 'yandexApi',
-  baseQuery: fetchBaseQuery({ baseUrl: 'https://geocode-maps.yandex.ru/' }),
+  baseQuery: fetchBaseQuery({ baseUrl: 'https://geocode-maps.yandex.ru/1.x/' }),
   endpoints: (builder) => ({
     getCityCoordinates: builder.query<{ lat: number; lon: number }, string>({
-      query: (city) => `1.x/?apikey=${API_KEY}&geocode=${city}&format=json`,
+      query: (city) => `?apikey=${API_KEY}&geocode=${city}&format=json`,
       transformResponse: (response: GeocodeResponse) => {
         const coords = response.response.GeoObjectCollection.featureMember[0].GeoObject.Point.pos
           .split(' ')

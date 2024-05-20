@@ -1,6 +1,6 @@
 'use client'
 
-import React, { useEffect } from 'react'
+import React, { useEffect, useState, useId } from 'react'
 import styles from '@/app/setting/setting.module.sass'
 import { useAppDispatch, useAppSelector } from '@/redux/hooks/hooks'
 import { daysReducer } from '@/redux/slices/chooseDaysNumberSlice'
@@ -27,6 +27,10 @@ const daysOptions: DaysOption[] = [
 const DaysChangeCount = () => {
   const dispatch = useAppDispatch()
   const selectedDaysStore = useAppSelector((state) => state.days.value)
+  const id = useId()
+
+  const [isMounted, setIsMounted] = useState(false)
+  useEffect(() => setIsMounted(true), [])
 
   useEffect(() => {
     const storedDaysCount = localStorage.getItem('daysCount')
@@ -74,62 +78,64 @@ const DaysChangeCount = () => {
     //     <option value="10">10 дней</option>
     //   </select>
     // </div>
-    <div className={styles.settings_wrap}>
-      <h2 className={styles.title_h2}>Изменить количество дней прогноза погоды :</h2>
-      <Select
-        id="day"
-        value={getSelectedDaysOption()}
-        onChange={handleDaysChange}
-        options={daysOptions}
-        placeholder="Выберите дни"
-        menuPlacement="auto"
-        styles={{
-          control: (provided) => ({
-            ...provided,
-            width: '180px',
-            height: '50px',
-            backgroundColor: 'var(--background-color)',
-            border: '1px solid var(--text-color)',
-            boxShadow: 'none',
-            '&:hover': {
-              color: 'var(--white-color)',
-              boxShadow: '0 0 5px var(--hover-color)',
-              backgroundColor: '#ff9b27'
-            },
-            borderRadius: '5px',
-            padding: '5px',
-            color: 'var(--text-color)'
-          }),
-          menu: (provided) => ({
-            ...provided,
-            backgroundColor: '#282c34',
-            color: 'white',
-            marginTop: '-100px'
-          }),
-          option: (provided, state) => ({
-            ...provided,
-            backgroundColor: state.isSelected
-              ? '#ff9b27'
-              : state.isFocused
-                ? 'var(--hover-color-two)'
-                : '#282c34',
-            color: state.isSelected ? 'black' : 'white',
-            '&:hover': {
-              backgroundColor: 'var(--hover-color-two)',
-              color: 'black'
-            }
-          }),
-          singleValue: (provided) => ({
-            ...provided,
-            color: 'var(--text-color)'
-          }),
-          placeholder: (provided) => ({
-            ...provided,
-            color: 'var(--text-color)'
-          })
-        }}
-      />
-    </div>
+    isMounted ? (
+      <div className={styles.settings_wrap}>
+        <h2 className={styles.title_h2}>Изменить количество дней прогноза погоды :</h2>
+        <Select
+          id={id}
+          value={getSelectedDaysOption()}
+          onChange={handleDaysChange}
+          options={daysOptions}
+          placeholder="Выберите дни"
+          menuPlacement="auto"
+          styles={{
+            control: (provided) => ({
+              ...provided,
+              width: '180px',
+              height: '50px',
+              backgroundColor: 'var(--background-color)',
+              border: '1px solid var(--text-color)',
+              boxShadow: 'none',
+              '&:hover': {
+                color: 'var(--white-color)',
+                boxShadow: '0 0 5px var(--hover-color)',
+                backgroundColor: '#ff9b27'
+              },
+              borderRadius: '5px',
+              padding: '5px',
+              color: 'var(--text-color)'
+            }),
+            menu: (provided) => ({
+              ...provided,
+              backgroundColor: '#282c34',
+              color: 'white',
+              marginTop: '-100px'
+            }),
+            option: (provided, state) => ({
+              ...provided,
+              backgroundColor: state.isSelected
+                ? '#ff9b27'
+                : state.isFocused
+                  ? 'var(--hover-color-two)'
+                  : '#282c34',
+              color: state.isSelected ? 'black' : 'white',
+              '&:hover': {
+                backgroundColor: 'var(--hover-color-two)',
+                color: 'black'
+              }
+            }),
+            singleValue: (provided) => ({
+              ...provided,
+              color: 'var(--text-color)'
+            }),
+            placeholder: (provided) => ({
+              ...provided,
+              color: 'var(--text-color)'
+            })
+          }}
+        />
+      </div>
+    ) : null
   )
 }
 

@@ -62,6 +62,7 @@ const ProfileCard = () => {
           <Image
             className={styles.picture}
             src={session.user.image}
+            priority={true}
             alt="Фото профиля"
             width={100}
             height={100}
