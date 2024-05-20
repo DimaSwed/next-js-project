@@ -33,3 +33,9 @@ jobs:
           NEXTAUTH_URL: ${{ secrets.NEXTAUTH_URL }}
           NEXT_PUBLIC_API_KEY: ${{ secrets.NEXT_PUBLIC_API_KEY }}
           NEXT_PUBLIC_YANDEX_API_KEY: ${{ secrets.NEXT_PUBLIC_YANDEX_API_KEY }}
+          MAILRU_CLIENT_ID: ${{ secrets.MAILRU_CLIENT_ID }}
+          MAILRU_SECRET: ${{ secrets.MAILRU_SECRET }}
+          YANDEX_CLIENT_ID: ${{ secrets.YANDEX_CLIENT_ID }}
+          YANDEX_SECRET: ${{ secrets.YANDEX_SECRET }}
+          VK_CLIENT_ID: ${{ secrets.VK_CLIENT_ID }}
+          VK_CLIENT_SECRET: ${{ secrets.VK_CLIENT_SECRET }}

@@ -7,14 +7,14 @@ export const metadata: Metadata = {
 }
 
 import { GoogleButton } from './UI/GoogleButton'
-import { SignInForm } from './UI/SignInForm'
+// import { SignInForm } from './UI/SignInForm'
 
 export default async function Signin() {
   return (
     <div className={styles.signin}>
       <h1 className={styles.title}>Войти:</h1>
-      <SignInForm />
-      <div>или c помощью Google</div>
+      {/* <SignInForm />
+      <div>или c помощью Google</div> */}
       <GoogleButton />
     </div>
   )
