@@ -12,7 +12,9 @@ const nextConfig = {
       'cdn.weatherapi.com',
       'lh3.googleusercontent.com',
       'img.stablecog.com',
-      'b.stablecog.com'
+      'b.stablecog.com',
+      'avatars.yandex.net',
+      'sun6-20.userapi.com'
     ]
   },
   env: {
