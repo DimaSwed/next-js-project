@@ -7,6 +7,7 @@ import WeatherForecastSlider from '@/components/ui/WeatherForecastSlider'
 import YandexMap from '@/components/ui/YandexMap'
 import AOS from 'aos'
 import 'aos/dist/aos.css'
+import SearchBar from '@/components/ui/SearchBar'
 
 export default function HomePage() {
   useEffect(() => {
@@ -35,8 +36,9 @@ export default function HomePage() {
           Еженедельный прогноз погоды
         </h1>
         <CitySelector />
+        <SearchBar />
         <p className={styles.text} data-aos="fade-right" data-aos-delay="600">
-          Раздел отображает последнюю информацию о погоде для города, который вы выбрали. <br />{' '}
+          Раздел отображает последнюю информацию о погоде для города, который вы выбрали. <br />
           Оставайтесь в курсе погодных условий в выбранном городе благодаря этому разделу.
         </p>
       </div>

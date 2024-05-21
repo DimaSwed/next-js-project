@@ -20,7 +20,7 @@ const CitySelector: React.FC = () => {
   const dispatch = useAppDispatch()
   const selectedCityStore = useAppSelector((state) => state.city.value)
   const selectId = useId()
-  const [isMounted, setIsMounted] = useState(false)
+  const [isMounted, setIsMounted] = useState<boolean>(false)
 
   useEffect(() => setIsMounted(true), [])
 
@@ -37,14 +37,14 @@ const CitySelector: React.FC = () => {
   //   localStorage.setItem('selectedCity', selectedCity)
   // }
 
-  const handleCityChange = (selectedOption: CityOption | null) => {
+  const handleCityChange = (selectedOption: CityOption | null): void => {
     if (selectedOption) {
       dispatch(cityReducer(selectedOption.value))
       localStorage.setItem('selectedCity', selectedOption.value)
     }
   }
 
-  const getSelectedCityOption = () => {
+  const getSelectedCityOption = (): CityOption | null => {
     return cityOptions.find((option) => option.value === selectedCityStore) || null
   }
 
