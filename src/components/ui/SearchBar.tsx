@@ -1,3 +1,4 @@
+// 'use client'
 // import React, { useState, useEffect } from 'react'
 // import { FaSearch } from 'react-icons/fa'
 // import styles from '@/app/main.module.sass'
@@ -46,6 +47,7 @@
 // }
 
 // export default SearchBar
+
 'use client'
 
 import React, { useEffect } from 'react'
@@ -62,6 +64,8 @@ const SearchBar: React.FC = () => {
     const storedCity = localStorage.getItem('selectedCity')
     if (storedCity) {
       dispatch(cityReducer(storedCity))
+    } else {
+      dispatch(cityReducer('Moscow'))
     }
   }, [dispatch])
 

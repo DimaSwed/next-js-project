@@ -2,7 +2,7 @@
 
 import React, { useEffect } from 'react'
 import styles from './main.module.sass'
-import CitySelector from '@/components/ui/CitySelector'
+// import CitySelector from '@/components/ui/CitySelector'
 import WeatherForecastSlider from '@/components/ui/WeatherForecastSlider'
 import YandexMap from '@/components/ui/YandexMap'
 import AOS from 'aos'
@@ -35,7 +35,7 @@ export default function HomePage() {
         <h1 data-aos="zoom-in" data-aos-anchor-placement="top-center" className={styles.title_h1}>
           Еженедельный прогноз погоды
         </h1>
-        <CitySelector />
+        {/* <CitySelector /> */}
         <SearchBar />
         <p className={styles.text} data-aos="fade-right" data-aos-delay="600">
           Раздел отображает последнюю информацию о погоде для города, который вы выбрали. <br />

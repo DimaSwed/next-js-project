@@ -3,7 +3,7 @@ import { Lato } from 'next/font/google'
 import TheFooter from '@/components/custom/TheFooter'
 import TheHeader from '@/components/custom/TheHeader'
 import WeatherProvider from './WeatherProvider'
-import '../styles/global.sass'
+import '@/styles/global.sass'
 
 const font_lato = Lato({
   weight: ['300', '400', '700'],

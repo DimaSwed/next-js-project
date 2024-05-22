@@ -25,8 +25,7 @@ const YandexMap: React.FC = () => {
   // if (isLoading) return <div className={styles.service}>Загрузка...</div>
 
   if (isLoading) return <YandexMapSkeleton />
-  if (isError)
-    return <div className={styles.service}>Error loading coordinates: {isError.toString()}</div>
+  if (isError) return <div className={styles.service}>Невозможно отобразить карту...</div>
 
   return (
     <div className={styles.yandex_map}>

@@ -1,5 +1,5 @@
 'use client'
-import React from 'react'
+import React, { useEffect } from 'react'
 import Carousel from 'react-multi-carousel'
 import 'react-multi-carousel/lib/styles.css'
 import { useGetWeatherByCityQuery } from '@/services/getWeatherData'
@@ -38,7 +38,18 @@ export default function WeatherForecastSlider() {
   }
 
   const selectedCity = useAppSelector((state) => state.city.value)
-  const selectedDays = typeof window !== 'undefined' ? localStorage.getItem('daysCount') ?? '' : ''
+
+  useEffect(() => {
+    if (typeof window !== 'undefined') {
+      const daysCount = localStorage.getItem('daysCount')
+      if (!daysCount) {
+        localStorage.setItem('daysCount', '10')
+      }
+    }
+  }, [])
+
+  const selectedDays =
+    typeof window !== 'undefined' ? localStorage.getItem('daysCount') ?? '10' : '10'
 
   const {
     data = [],
@@ -49,7 +60,7 @@ export default function WeatherForecastSlider() {
   // if (isLoading) return <div className={styles.service}>Загрузка...</div>
   if (isLoading)
     return Array.from({ length: 1 }).map((_, index) => <WeatherForecastSkeleton key={index} />)
-  if (isError) return <div className={styles.service}>{isError}</div>
+  if (isError) return <div className={styles.service}>Ошибка при загрузке данных о погоде!</div>
 
   return (
     <Carousel
