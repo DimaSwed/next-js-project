@@ -10,10 +10,10 @@ export const metadata: Metadata = {
 
 export default function About() {
   return (
-    <div className={styles.about}>
-      <Suspense fallback={<Loading />}>
+    <Suspense fallback={<Loading />}>
+      <div className={styles.about}>
         <CommonComponentAbout />
-      </Suspense>
-    </div>
+      </div>
+    </Suspense>
   )
 }

@@ -9,11 +9,9 @@ export const metadata: Metadata = {
 
 const Profile = () => {
   return (
-    <>
-      <Suspense fallback={<Loading />}>
-        <ProfileCard />
-      </Suspense>
-    </>
+    <Suspense fallback={<Loading />}>
+      <ProfileCard />
+    </Suspense>
   )
 }
 

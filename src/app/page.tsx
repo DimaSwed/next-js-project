@@ -1,6 +1,6 @@
 'use client'
 
-import React, { useEffect } from 'react'
+import React, { Suspense, useEffect } from 'react'
 import styles from './main.module.sass'
 // import CitySelector from '@/components/ui/CitySelector'
 import WeatherForecastSlider from '@/components/ui/WeatherForecastSlider'
@@ -8,6 +8,7 @@ import YandexMap from '@/components/ui/YandexMap'
 import AOS from 'aos'
 import 'aos/dist/aos.css'
 import SearchBar from '@/components/ui/SearchBar'
+import Loading from './loading'
 
 export default function HomePage() {
   useEffect(() => {
@@ -30,24 +31,26 @@ export default function HomePage() {
   }, [])
 
   return (
-    <div className={styles.home_page}>
-      <div className={styles.inner}>
-        <h1 data-aos="zoom-in" data-aos-anchor-placement="top-center" className={styles.title_h1}>
-          Еженедельный прогноз погоды
-        </h1>
-        {/* <CitySelector /> */}
-        <SearchBar />
-        <p className={styles.text} data-aos="fade-right" data-aos-delay="600">
-          Раздел отображает последнюю информацию о погоде для города, который вы выбрали. <br />
-          Оставайтесь в курсе погодных условий в выбранном городе благодаря этому разделу.
-        </p>
+    <Suspense fallback={<Loading />}>
+      <div className={styles.home_page}>
+        <div className={styles.inner}>
+          <h1 data-aos="zoom-in" data-aos-anchor-placement="top-center" className={styles.title_h1}>
+            Еженедельный прогноз погоды
+          </h1>
+          {/* <CitySelector /> */}
+          <SearchBar />
+          <p className={styles.text} data-aos="fade-right" data-aos-delay="600">
+            Раздел отображает последнюю информацию о погоде для города, который вы выбрали. <br />
+            Оставайтесь в курсе погодных условий в выбранном городе благодаря этому разделу.
+          </p>
+        </div>
+        <hr />
+        <div className={styles.weather_items}>
+          <WeatherForecastSlider />
+        </div>
+        <hr />
+        <YandexMap />
       </div>
-      <hr />
-      <div className={styles.weather_items}>
-        <WeatherForecastSlider />
-      </div>
-      <hr />
-      <YandexMap />
-    </div>
+    </Suspense>
   )
 }

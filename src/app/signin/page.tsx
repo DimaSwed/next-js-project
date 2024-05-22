@@ -12,13 +12,13 @@ import Loading from '../loading'
 
 export default async function Signin() {
   return (
-    <div className={styles.signin}>
-      <Suspense fallback={<Loading />}>
+    <Suspense fallback={<Loading />}>
+      <div className={styles.signin}>
         <h1 className={styles.title}>Войти:</h1>
         {/* <SignInForm />
       <div>или c помощью Google</div> */}
         <GoogleButton />
-      </Suspense>
-    </div>
+      </div>
+    </Suspense>
   )
 }

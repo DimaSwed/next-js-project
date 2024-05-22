@@ -12,8 +12,8 @@ export const metadata: Metadata = {
 
 export default function Settings() {
   return (
-    <div className={styles.settings}>
-      <Suspense fallback={<Loading />}>
+    <Suspense fallback={<Loading />}>
+      <div className={styles.settings}>
         <h1 className={styles.title_h1}>Настройки</h1>
         <hr className={styles.hr} />
         <ThemeToggle />
@@ -21,7 +21,7 @@ export default function Settings() {
         <DaysChangeCount />
         <hr className={styles.hr} />
         <GitHubLinksToggle />
-      </Suspense>
-    </div>
+      </div>
+    </Suspense>
   )
 }

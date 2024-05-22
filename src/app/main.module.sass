@@ -130,7 +130,7 @@
   width: 100%
   border-right: none
   height: 50px
-  border-radius: 5px 0 0 5px
+  // border-radius: 5px 0 0 0
   padding: 10px 38px 10px 16px
   border: 1px solid var(--text-color)
   background-color: var(--background-color)
@@ -159,9 +159,16 @@
 
 .search_icon
   color: var(--white-color)
+
 .suggestion
-  color: var(--text-color)
-  line-height: 1.5 // Установка меньшего значения line-height для уменьшения высоты строки
+  color: var(--color-black)
+  line-height: 1.5
+  padding: 5px 10px
+  cursor: pointer
+  z-index: 30
+
+.suggestion:hover
+  background-color: #ff9b27
 
 .search_wrap
   position: relative
@@ -180,24 +187,17 @@
   overflow-y: auto
   z-index: 30
   font-size: 1rem
-  background-color: var(--background-color)
-  border-radius: 0 0 5px 5px
+  background-color: var(--greylight-color)
+  // border-radius: 0 0 5px 5px
 
 .suggestionsList
   margin: 0
   padding: 0
   list-style-type: none
 
-.suggestion
-  padding: 10px
-  cursor: pointer
-  z-index: 30
-
 .belowContent
   position: relative
   z-index: 10
-.suggestion:hover
-  background-color: var(--hover-color)
 
 @keyframes loading
   0%
