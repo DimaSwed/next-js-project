@@ -57,6 +57,12 @@ export default function WeatherForecastSlider() {
     isError
   } = useGetWeatherByCityQuery({ city: selectedCity, days: selectedDays })
 
+  useEffect(() => {
+    if (isError) {
+      localStorage.setItem('selectedCity', 'Moscow')
+    }
+  }, [isError])
+
   // if (isLoading) return <div className={styles.service}>Загрузка...</div>
   if (isLoading)
     return Array.from({ length: 1 }).map((_, index) => <WeatherForecastSkeleton key={index} />)
