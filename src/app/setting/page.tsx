@@ -4,7 +4,7 @@ import DaysChangeCount from './UI/DaysChangeCount'
 import GitHubLinksToggle from './UI/GitHubLinksToggle'
 import styles from './setting.module.sass'
 import { Suspense } from 'react'
-import Loading from '../loading'
+import Loading from './loading'
 
 export const metadata: Metadata = {
   title: 'Settings | Weather App'
