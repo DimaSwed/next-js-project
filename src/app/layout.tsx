@@ -1,3 +1,5 @@
+import React, { Suspense } from 'react'
+import Loading from './loading'
 import type { Metadata } from 'next'
 import { Lato } from 'next/font/google'
 import TheFooter from '@/components/custom/TheFooter'
@@ -26,7 +28,9 @@ export default function RootLayout({
       <body className={font_lato.className}>
         <WeatherProvider>
           <TheHeader />
-          <main className="container">{children}</main>
+          <Suspense fallback={<Loading />}>
+            <main className="container">{children}</main>
+          </Suspense>
           <TheFooter />
         </WeatherProvider>
       </body>
